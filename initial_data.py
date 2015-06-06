@@ -22,7 +22,8 @@ chimneySwift = Species(common_name="Chimney Swift",
     Look like cigars with wings, always chattering high above
     while catching insects.  Almost always flying and only lands
     to roost in chimneys.   
-    """, 
+    """,
+    category="bird", 
     picture_url="http://upload.wikimedia.org/wikipedia/commons/6/6d/Chimney_swift_overhead.jpg")
 
 session.add(chimneySwift)
