@@ -1,0 +1,41 @@
+<! DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>A Local Field Guide</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', 
+        filename='styles.css') }}">
+</head>
+
+<body>
+
+    <div class="header">
+        <h1>A Local Field Guide</h1>
+    </div>
+
+    <div class="mainContent">
+        <h1>{{place.name}}</h1>
+
+        {% for s in species %}
+
+        <div class="speciesCard">
+            <img src="{{s.picture_url}}">
+            <h3>{{s.common_name}}</h3>
+            <p><i>{{s.scientific_name}}</i></p>
+            <h4>About</h4>
+            <p>
+                {{s.description}}
+            </p>
+            <h4>Tip</h4>
+            <p>
+                {{s.tip}}
+            </p>
+
+        </div>
+        {% endfor %}
+
+    </div>
+
+</body>
+
+</html>
