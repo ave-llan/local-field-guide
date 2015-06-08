@@ -16,23 +16,28 @@
     <div class="mainContent">
         <h1>{{place.name}}</h1>
 
-        {% for occurrence in occurrences %}
+        <div class="cardDisplay">
 
-        <div class="speciesCard">
-            <img src="{{occurrence.species.picture_url}}">
-            <h3>{{occurrence.species.common_name}}</h3>
-            <p><i>{{occurrence.species.scientific_name}}</i></p>
-            <h4>About</h4>
-            <p>
-                {{occurrence.species.description}}
-            </p>
-            <h4>Tip</h4>
-            <p>
-                {{occurrence.tip}}
-            </p>
+            {% for occurrence in occurrences %}
+
+            <div class="speciesCard">
+                <img src="{{occurrence.species.picture_url}}">
+                <h3>{{occurrence.species.common_name}}</h3>
+                <p><i>{{occurrence.species.scientific_name}}</i></p>
+                <h4>About</h4>
+                <p>
+                    {{occurrence.species.description}}
+                </p>
+                <h4>Where to look</h4>
+                <p>
+                    {{occurrence.tip}}
+                </p>
+
+            </div>
+
+            {% endfor %}
 
         </div>
-        {% endfor %}
 
     </div>
 

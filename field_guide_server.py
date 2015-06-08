@@ -27,7 +27,6 @@ def placeFieldGuide(place_id):
     occurrences = session.query(SpeciesOccurrence).\
                     filter_by(place_id = place_id).\
                     all()
-
     return render_template('place.html', place=place, occurrences=occurrences)
 
 
