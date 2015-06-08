@@ -1,7 +1,7 @@
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
-from database_setup import Base, Place, Species, SpeciesAtLocation, engine
+from database_setup import Base, Place, Species, SpeciesOccurrence, engine
 
 Base.metadata.bind = engine
 
@@ -31,7 +31,7 @@ chimneySwift = Species(common_name="Chimney Swift",
 session.add(chimneySwift)
 session.commit()
 
-swiftsAtWalter = SpeciesAtLocation(place_id=walterPierce.id, species_id=chimneySwift.id,
+swiftsAtWalter = SpeciesOccurrence(place_id=walterPierce.id, species_id=chimneySwift.id,
     prevalence = 'common',
     tip = """
     In the summer, almost always flying high above the park.  Some roost in the chimneys of 
@@ -54,7 +54,7 @@ cardinal = Species(common_name="Northern Cardinal",
 session.add(cardinal)
 session.commit()
 
-cardinalAtWalter = SpeciesAtLocation(place_id=walterPierce.id, species_id=cardinal.id,
+cardinalAtWalter = SpeciesOccurrence(place_id=walterPierce.id, species_id=cardinal.id,
     prevalence = 'common',
     tip = """
     Seen and heard year round.  Likes to perch near the top of trees.
@@ -76,7 +76,7 @@ deer = Species(common_name="White-Tailed Deer",
 session.add(deer)
 session.commit()
 
-deerAtWalter = SpeciesAtLocation(place_id=walterPierce.id, species_id=deer.id,
+deerAtWalter = SpeciesOccurrence(place_id=walterPierce.id, species_id=deer.id,
     prevalence = 'common',
     tip = """
     Freqently seen grazing or resting in the valley behind the basketball court.  Occasionally 
@@ -99,7 +99,7 @@ redFox = Species(common_name="American Red Fox",
 session.add(redFox)
 session.commit()
 
-foxAtWalter = SpeciesAtLocation(place_id=walterPierce.id, species_id=redFox.id,
+foxAtWalter = SpeciesOccurrence(place_id=walterPierce.id, species_id=redFox.id,
     prevalence = 'rare',
     tip = """
     Rarely seen in the valley behind the basketball court.  Look for motion under the vegetation. 

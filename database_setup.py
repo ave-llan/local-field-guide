@@ -28,8 +28,8 @@ class Species(Base):
     picture_url = Column(String(250))
 
 
-class SpeciesAtLocation(Base):
-    __tablename__ = 'speciesAtLocation'
+class SpeciesOccurrence(Base):
+    __tablename__ = 'speciesOccurrence'
 
     place_id = Column(Integer, ForeignKey('place.id'), primary_key=True)
     species_id = Column(Integer, ForeignKey('species.id'), primary_key=True)
@@ -39,7 +39,7 @@ class SpeciesAtLocation(Base):
     tip = Column(String(250))
 
     place = relationship("Place", backref=backref('species'))
-    species = relationship("Species", foreign_keys="SpeciesAtLocation.species_id")
+    species = relationship("Species")
 
 
 
