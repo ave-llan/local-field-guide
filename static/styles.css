@@ -1,0 +1,9 @@
+
+
+.speciesCard {
+    width: 250px;
+}
+.speciesCard img {
+    max-width:100%;
+    height: auto;
+}
