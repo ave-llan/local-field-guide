@@ -176,3 +176,55 @@ session.add(rbWoodpeckerAtWalter)
 session.commit()
 
 
+#####################################
+# Create Dumbarton Oaks instance
+dumbartonOaks = Place(name="Dumbarton Oaks Park", 
+    longitude="-77.064373", latitude="38.916790")
+
+session.add(dumbartonOaks)
+session.commit()
+
+# add cardinal to dumbarton
+cardinalAtDumbarton = SpeciesOccurrence(place_id=dumbartonOaks.id, species_id=cardinal.id,
+    prevalence = 'common',
+    tip = """
+    Seen and heard year round throughout the park.
+    """)
+
+session.add(cardinalAtDumbarton)
+session.commit()
+
+
+# add Eastern Towhee
+towhee = Species(common_name="Eastern Towhee",
+    scientific_name="Pipilo erythrophthalmus", 
+    description="""
+    An oversized sparrow with bold black and warm reddish-browns.  
+    Often rummaging in undergrowth. Sings classic "drink-your-tea!" song.
+    """,
+    category="bird", 
+    picture_url="http://upload.wikimedia.org/wikipedia/commons/2/21/Pipilo_erythrophthalmus_-Quabbin_Reservoir%2C_Massachusetts%2C_USA_-male-8.jpg")
+
+session.add(towhee)
+session.commit()
+
+towheeAtDumbarton = SpeciesOccurrence(place_id=dumbartonOaks.id, species_id=towhee.id,
+    prevalence = 'common',
+    tip = """
+    Often heard rummaging in the bushes up the hill that leads to the fenced Dumbarton Oaks Gardens.
+    """)
+
+session.add(towheeAtDumbarton)
+session.commit()
+
+
+# add deer to dumbarton
+deerAtDumbarton = SpeciesOccurrence(place_id=dumbartonOaks.id, species_id=deer.id,
+    prevalence = 'common',
+    tip = """
+    Often seen on the northwest side of the park in the woods around Observatory Circle and Whitehaven Street. 
+    """)
+
+session.add(deerAtDumbarton)
+session.commit()
+
