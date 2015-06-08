@@ -30,6 +30,22 @@ def placeFieldGuide(place_id):
     return render_template('place.html', place=place, occurrences=occurrences)
 
 
+@app.route('/place/create/', methods=['GET', 'POST'])
+def createPlace():
+    if request.method == 'POST':
+        newPlace = Place(name = request.form['name'],
+                    longitude = request.form['longitude'],
+                    latitude = request.form['latitude'])
+        session.add(newPlace)
+        session.commit()
+        # redirect user back to the main page
+        # TODO add flash here
+        return redirect(url_for('homePage'))
+    else:
+        return render_template('newplace.html')
+
+
+
 if __name__ == '__main__':
     app.secret_key = 'super_secret_key'
     app.debug = True
