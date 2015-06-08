@@ -100,7 +100,7 @@ session.add(redFox)
 session.commit()
 
 foxAtWalter = SpeciesOccurrence(place_id=walterPierce.id, species_id=redFox.id,
-    prevalence = 'rare',
+    prevalence = 'uncommon',
     tip = """
     Rarely seen in the valley behind the basketball court.  Look for motion under the vegetation. 
     """)
@@ -108,5 +108,71 @@ foxAtWalter = SpeciesOccurrence(place_id=walterPierce.id, species_id=redFox.id,
 session.add(foxAtWalter)
 session.commit()
 
+
+# add rat snake
+ratSnake = Species(common_name="Black Rat Snake",
+    scientific_name="Elaphe obsoleta", 
+    description="""
+    Black non-venomous snake which climbs trees and can grow up to six feet in length.
+    """,
+    category="reptile", 
+    picture_url="http://upload.wikimedia.org/wikipedia/commons/d/d4/Black_Rat_Snake.jpg")
+
+session.add(ratSnake)
+session.commit()
+
+ratSnakeAtWalter = SpeciesOccurrence(place_id=walterPierce.id, species_id=ratSnake.id,
+    prevalence = 'uncommon',
+    tip = """
+    In the summer of 2013, several rat snakes were fell from the trees in the children's playground.
+    """)
+
+session.add(ratSnakeAtWalter)
+session.commit()
+
+
+# add tulip tree
+tulipTree = Species(common_name="Tuliptree",
+    scientific_name="Liriodendron tulipifera", 
+    description="""
+    One of the largest hardwood trees in North America, with unique leaf shape and green tulip-shaped flowers.
+    """,
+    category="tree", 
+    picture_url="http://upload.wikimedia.org/wikipedia/commons/3/37/Liriodendron_tulipifera_%28arbre%29_-_Laeken.JPG")
+
+session.add(tulipTree)
+session.commit()
+
+tulipAtWalter = SpeciesOccurrence(place_id=walterPierce.id, species_id=tulipTree.id,
+    prevalence = 'present',
+    tip = """
+    Medium tree near the drinking fountain, up above the basketball court. 
+    """)
+
+session.add(tulipAtWalter)
+session.commit()
+
+
+# add Red-bellied woodpecker
+rbWoodpecker = Species(common_name="Red-bellied woodpecker",
+    scientific_name="Melanerpes carolinus", 
+    description="""
+    Medium woodpecker with strikingly barred backs and red caps. 
+    """,
+    category="bird", 
+    picture_url="http://upload.wikimedia.org/wikipedia/commons/1/12/Red-bellied_Woodpecker-27527.jpg")
+
+session.add(rbWoodpecker)
+session.commit()
+
+rbWoodpeckerAtWalter = SpeciesOccurrence(place_id=walterPierce.id, species_id=rbWoodpecker.id,
+    prevalence = 'common',
+    tip = """
+    Easiest to find by listening for the distinctive 'churrr' call along with drumming. 
+    Often seen in the woods behind the dog park and in the trees on the other side of the valley.
+    """)
+
+session.add(rbWoodpeckerAtWalter)
+session.commit()
 
 
