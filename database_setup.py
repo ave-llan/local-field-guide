@@ -32,15 +32,15 @@ class SpeciesAtLocation(Base):
     __tablename__ = 'speciesAtLocation'
 
     place_id = Column(Integer, ForeignKey('place.id'), primary_key=True)
-    place = relationship(Place)
-
     species_id = Column(Integer, ForeignKey('species.id'), primary_key=True)
-    species = relationship(Species)
-
-    # add a tip about how to find this species at this place
-    tip = Column(String(250))
     # common, occoasional, OR rare
     prevalence = Column(String(12), nullable=False)
+    # add a tip about how to find this species at this place
+    tip = Column(String(250))
+
+    place = relationship("Place", foreign_keys="SpeciesAtLocation.place_id")
+    species = relationship("Species", foreign_keys="SpeciesAtLocation.species_id")
+
 
 
 
