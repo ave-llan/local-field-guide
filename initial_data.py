@@ -102,7 +102,7 @@ session.commit()
 foxAtWalter = SpeciesAtLocation(place_id=walterPierce.id, species_id=redFox.id,
     prevalence = 'rare',
     tip = """
-    Rarely seen in the valley behind the basketball court.  Look for motion under the vegitation. 
+    Rarely seen in the valley behind the basketball court.  Look for motion under the vegetation. 
     """)
 
 session.add(foxAtWalter)
