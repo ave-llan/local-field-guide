@@ -1,9 +1,17 @@
 
-
+.cardDisplay {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+}
 .speciesCard {
     width: 250px;
+    margin: 4px;
+    background: #F3E5F5;
+    padding: 4px;
 }
 .speciesCard img {
     max-width:100%;
     height: auto;
 }
+
