@@ -10,7 +10,7 @@
 <body>
 
     <div class="header">
-        <h1>A Local Field Guide</h1>
+        <h1><a href="/">A Local Field Guide</a></h1>
     </div>
 
     <div class="mainContent">
@@ -20,7 +20,9 @@
             <ul>
                 {% for place in places %}
                 <li>
-                    {{place.name}}
+                    <a href="{{ url_for('placeFieldGuide', place_id=place.id) }}">
+                        {{place.name}}
+                    </a>
                 </li>
                 {% endfor %}
             </ul>
