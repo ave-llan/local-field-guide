@@ -19,16 +19,16 @@
         {% for s in species %}
 
         <div class="speciesCard">
-            <img src="{{s.picture_url}}">
-            <h3>{{s.common_name}}</h3>
-            <p><i>{{s.scientific_name}}</i></p>
+            <img src="{{s.Species.picture_url}}">
+            <h3>{{s.Species.common_name}}</h3>
+            <p><i>{{s.Species.scientific_name}}</i></p>
             <h4>About</h4>
             <p>
-                {{s.description}}
+                {{s.Species.description}}
             </p>
             <h4>Tip</h4>
             <p>
-                {{s.tip}}
+                {{s.SpeciesAtLocation.tip}}
             </p>
 
         </div>

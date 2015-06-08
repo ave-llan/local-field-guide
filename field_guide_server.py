@@ -21,6 +21,18 @@ def homePage():
     return render_template('index.html', places = places, latestSpecies = latestSpecies)
 
 
+@app.route('/place/<int:place_id>/')
+def placeFieldGuide(place_id):
+    place = session.query(Place).filter_by(id=place_id).one()
+    species = session.query(Species, SpeciesAtLocation).\
+                    filter(Species.id==SpeciesAtLocation.species_id).\
+                    filter(SpeciesAtLocation.place_id==place_id).\
+                    all()
+    for i in species:
+        print i.keys()
+    return render_template('place.html', place=place, species=species)
+
+
 if __name__ == '__main__':
     app.secret_key = 'super_secret_key'
     app.debug = True

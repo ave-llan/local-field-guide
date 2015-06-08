@@ -1,6 +1,6 @@
 from sqlalchemy import Column, ForeignKey, Integer, String, Float
 from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy.orm import relationship
+from sqlalchemy.orm import relationship, backref
 from sqlalchemy import create_engine
 
  
@@ -38,7 +38,7 @@ class SpeciesAtLocation(Base):
     # add a tip about how to find this species at this place
     tip = Column(String(250))
 
-    place = relationship("Place", foreign_keys="SpeciesAtLocation.place_id")
+    place = relationship("Place", backref=backref('species'))
     species = relationship("Species", foreign_keys="SpeciesAtLocation.species_id")
 
 
