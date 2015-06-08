@@ -16,19 +16,19 @@
     <div class="mainContent">
         <h1>{{place.name}}</h1>
 
-        {% for s in species %}
+        {% for occurrence in occurrences %}
 
         <div class="speciesCard">
-            <img src="{{s.Species.picture_url}}">
-            <h3>{{s.Species.common_name}}</h3>
-            <p><i>{{s.Species.scientific_name}}</i></p>
+            <img src="{{occurrence.species.picture_url}}">
+            <h3>{{occurrence.species.common_name}}</h3>
+            <p><i>{{occurrence.species.scientific_name}}</i></p>
             <h4>About</h4>
             <p>
-                {{s.Species.description}}
+                {{occurrence.species.description}}
             </p>
             <h4>Tip</h4>
             <p>
-                {{s.SpeciesAtLocation.tip}}
+                {{occurrence.tip}}
             </p>
 
         </div>

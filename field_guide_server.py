@@ -4,7 +4,7 @@ app = Flask(__name__)
 ## import CRUD Operations ##
 from sqlalchemy import create_engine, desc
 from sqlalchemy.orm import sessionmaker
-from database_setup import Base, Place, Species, SpeciesAtLocation
+from database_setup import Base, Place, Species, SpeciesOccurrence
 
 # Create session and connect to DB
 engine = create_engine('sqlite:///fieldguide.db')
@@ -24,13 +24,11 @@ def homePage():
 @app.route('/place/<int:place_id>/')
 def placeFieldGuide(place_id):
     place = session.query(Place).filter_by(id=place_id).one()
-    species = session.query(Species, SpeciesAtLocation).\
-                    filter(Species.id==SpeciesAtLocation.species_id).\
-                    filter(SpeciesAtLocation.place_id==place_id).\
+    occurrences = session.query(SpeciesOccurrence).\
+                    filter_by(place_id = place_id).\
                     all()
-    for i in species:
-        print i.keys()
-    return render_template('place.html', place=place, species=species)
+
+    return render_template('place.html', place=place, occurrences=occurrences)
 
 
 if __name__ == '__main__':
