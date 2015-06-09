@@ -22,7 +22,7 @@ class Species(Base):
     id = Column(Integer, primary_key=True)
     common_name = Column(String(80), nullable=False)
     scientific_name = Column(String(80), nullable=False)
-    # mammal, bird, insect, reptile, fish, butterfly, mushroom, flower
+    # mammal, bird, insect, reptile, fish, butterfly, mushroom, flower, tree
     category = Column(String(80), nullable=False)
     description = Column(String(250))
     picture_url = Column(String(250))
