@@ -1,0 +1,52 @@
+<! DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Local Field Guide</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', 
+        filename='styles.css') }}">
+</head>
+
+<body>
+    <div class="header">
+        <h1><a href="{{url_for('homePage') }}">Local Field Guide</a></h1>
+    </div>
+
+    <h1>Add Species</h1>
+
+    <form action="{{url_for('addSpecies') }}" method='POST'>
+
+        <p>Species Common Name:</p>
+        <input type='text' size='30' name='commonName'>
+
+        <p>Species Scientific Name:</p>
+        <input type='text' size='30' name='scientificName'>
+
+        <p>Type:</p>
+        <select name='category'>
+            <option>mammal</option>
+            <option>bird</option>
+            <option>insect</option>
+            <option>reptile</option>
+            <option>fish</option>
+            <option>butterfly</option>
+            <option>mushroom</option>
+            <option>flower</option>
+            <option>tree</option>
+        </select>
+
+        <p>Description:</p>
+        <textarea name='description'></textarea>
+
+        <p>Photo URL:</p>
+        <input type='url' size='60' name='picture_url'>
+
+        </br>
+        </br>
+        <input type='submit' value='Add Species'>
+
+    </form>
+
+</body>
+
+</html>

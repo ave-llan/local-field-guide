@@ -1,0 +1,42 @@
+<! DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Local Field Guide</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', 
+        filename='styles.css') }}">
+</head>
+
+<body>
+    <div class="header">
+        <h1><a href="{{url_for('homePage') }}">Local Field Guide</a></h1>
+    </div>
+
+    <h1>Add Species to the Field Guide for {{place.name}}</h1>
+
+    <form action="{{url_for('addSpeciesToPlace', place_id = place.id) }}" method="POST">
+
+        <p>Species:</p>
+        <select name='species'>
+            {% for s in species %}
+            <option>
+                {{s.common_name}}
+            </option>
+            {% endfor %}
+        </select>
+
+        <p>How prevalent is this species at {{place.name}}?:</p>
+        <input type='text' size='30' name='prevalence'>
+
+        <p>Where in the park is this species usually found? Any tips on how to find the species?</p>
+        <textarea name='tip'></textarea>
+
+        </br>
+        </br>
+        <input type='submit' value='Add Species'>
+
+    </form>
+
+</body>
+
+</html>

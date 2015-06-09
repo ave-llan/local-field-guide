@@ -45,6 +45,41 @@ def createPlace():
         return render_template('newplace.html')
 
 
+@app.route('/addspecies', methods=['GET', 'POST'])
+def addSpecies():
+    if request.method == 'POST':
+        newSpecies = Species(common_name = request.form['commonName'],
+                    scientific_name = request.form['scientificName'],
+                    category = request.form['category'],
+                    description = request.form['description'],
+                    picture_url = request.form['picture_url'])
+        session.add(newSpecies)
+        session.commit()
+        # redirect user back to the main page
+        # TODO add flash here
+        return redirect(url_for('homePage'))
+    else:
+        return render_template('addspecies.html')
+
+
+@app.route('/place/<int:place_id>/addspeciestoplace/', methods=['GET', 'POST'])
+def addSpeciesToPlace(place_id):
+    if request.method == 'POST':
+        sp = session.query(Species).filter_by(common_name=request.form['species']).one()
+        newSpeciesOccurrence = SpeciesOccurrence(place_id = place_id,
+                    species_id = sp.id,
+                    prevalence = request.form['prevalence'],
+                    tip = request.form['tip'])
+        session.add(newSpeciesOccurrence)
+        session.commit()
+        # redirect user back to the main page
+        # TODO add flash here
+        return redirect(url_for('placeFieldGuide', place_id=place_id))
+    else:
+        place = session.query(Place).filter_by(id=place_id).one()
+        species = session.query(Species).all()
+        return render_template('addspeciestoplace.html', place=place, species=species)
+
 
 if __name__ == '__main__':
     app.secret_key = 'super_secret_key'
