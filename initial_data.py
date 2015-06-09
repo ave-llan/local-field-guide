@@ -124,7 +124,7 @@ session.commit()
 ratSnakeAtWalter = SpeciesOccurrence(place_id=walterPierce.id, species_id=ratSnake.id,
     prevalence = 'uncommon',
     tip = """
-    In the summer of 2013, several rat snakes were fell from the trees in the children's playground.
+    In the summer of 2013, several rat snakes fell from the trees in the children's playground.
     """)
 
 session.add(ratSnakeAtWalter)
