@@ -35,7 +35,7 @@
                     {{occurrence.tip}}
                 </p>
                 <p>
-                    <a href="#">Edit</a> | 
+                    <a href="{{url_for('editSpeciesOccurrence', place_id=place.id, species_id=occurrence.species.id)}}">Edit</a> | 
                     <a href="#">Remove</a>
                 </p>
 
