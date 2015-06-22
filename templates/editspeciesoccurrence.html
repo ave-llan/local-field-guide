@@ -1,0 +1,38 @@
+<! DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Local Field Guide</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', 
+        filename='styles.css') }}">
+</head>
+
+<body>
+
+    <div class="header">
+        <h1><a href="{{url_for('homePage') }}">Local Field Guide</a></h1>
+    </div>
+
+    <div class="mainContent">
+
+        <h2 id="placeName">Edit {{occurrence.species.common_name}} at {{occurrence.place.name}}</h2>
+        <form action="{{url_for('editSpeciesOccurrence', place_id=occurrence.place_id, species_id=occurrence.species_id)}}" method="POST">
+
+
+            <p>
+                Edit tip:
+            </p>
+            <textarea name='tip'>{{occurrence.tip}}</textarea>
+
+            </br>
+            </br>
+            <input type='submit' value='Edit Tip'>
+
+        </form>
+
+
+    </div>
+
+</body>
+
+</html>

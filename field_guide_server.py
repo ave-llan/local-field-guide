@@ -80,6 +80,23 @@ def addSpeciesToPlace(place_id):
         return render_template('addspeciestoplace.html', place=place, species=species)
 
 
+@app.route('/place/<int:place_id>/<int:species_id>/editoccurrence', methods=['GET', 'POST'])
+def editSpeciesOccurrence(place_id, species_id):
+    if request.method == 'POST':
+        print 'trying to post'
+        occurrence = session.query(SpeciesOccurrence).filter_by(place_id=place_id, species_id=species_id).one()
+        if request.form['tip']:
+            occurrence.tip = request.form['tip']
+        session.add(occurrence)
+        session.commit()
+        # redirect to the page for the place of this species occurrence
+        return redirect(url_for('placeFieldGuide', place_id=place_id))
+
+    else:
+        occurrence = session.query(SpeciesOccurrence).filter_by(place_id=place_id, species_id=species_id).one()
+        return render_template('editspeciesoccurrence.html', occurrence=occurrence)
+
+
 if __name__ == '__main__':
     app.secret_key = 'super_secret_key'
     app.debug = True
