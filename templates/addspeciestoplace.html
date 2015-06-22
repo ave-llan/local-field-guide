@@ -28,11 +28,7 @@
             Species not yet in the database? <a href="{{url_for('addSpecies') }}">Add a new species here.</a>
         </p>
 
-
-        <p>How prevalent is this species at {{place.name}}?:</p>
-        <input type='text' size='30' name='prevalence'>
-
-        <p>Where in the park is this species usually found? Any tips on how to find the species?</p>
+        <p>Where in {{place.name}} is this species usually found? How common is it? Any tips on how to find the species?</p>
         <textarea name='tip'></textarea>
 
         </br>
