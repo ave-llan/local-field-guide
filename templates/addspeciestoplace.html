@@ -24,6 +24,10 @@
             </option>
             {% endfor %}
         </select>
+        <p>
+            Species not yet in the database? <a href="{{url_for('addSpecies') }}">Add a new species here.</a>
+        </p>
+
 
         <p>How prevalent is this species at {{place.name}}?:</p>
         <input type='text' size='30' name='prevalence'>
