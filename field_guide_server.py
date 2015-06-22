@@ -51,7 +51,6 @@ def addSpecies():
         newSpecies = Species(common_name = request.form['commonName'],
                     scientific_name = request.form['scientificName'],
                     category = request.form['category'],
-                    description = request.form['description'],
                     picture_url = request.form['picture_url'])
         session.add(newSpecies)
         session.commit()

@@ -20,11 +20,6 @@ session.commit()
 # add Chimnney Swift
 chimneySwift = Species(common_name="Chimney Swift",
     scientific_name="Chaetura pelagica", 
-    description="""
-    Look like cigars with wings, always chattering high above
-    while catching insects.  Almost always flying and only lands
-    to roost in chimneys.   
-    """,
     category="bird", 
     picture_url="http://upload.wikimedia.org/wikipedia/commons/6/6d/Chimney_swift_overhead.jpg")
 
@@ -44,9 +39,6 @@ session.commit()
 # add Northern Cardinal
 cardinal = Species(common_name="Northern Cardinal",
     scientific_name="Cardinalis cardinalis", 
-    description="""
-    Red crested bird with a large repertoire of clear, whistled songs.   
-    """,
     category="bird", 
     picture_url="http://bit.ly/1ImrO7d")
 
@@ -65,9 +57,6 @@ session.commit()
 # add deer
 deer = Species(common_name="White-Tailed Deer",
     scientific_name="Odocoileus virginianus", 
-    description="""
-    Tan deer with white on belly, throat, around eyes, and underside of tail. Male has antlers.
-    """,
     category="mammal", 
     picture_url="http://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/White-tailed_deer.jpg/2560px-White-tailed_deer.jpg")
 
@@ -87,9 +76,6 @@ session.commit()
 # add red fox
 redFox = Species(common_name="American Red Fox",
     scientific_name="Vulpes vulpes fulvus", 
-    description="""
-    The size of a medium dog with pointed ears and red fur across the face, back, sides, and tail.
-    """,
     category="mammal", 
     picture_url="http://upload.wikimedia.org/wikipedia/commons/thumb/d/df/Fox_study_6.jpg/440px-Fox_study_6.jpg")
 
@@ -108,9 +94,6 @@ session.commit()
 # add rat snake
 ratSnake = Species(common_name="Black Rat Snake",
     scientific_name="Elaphe obsoleta", 
-    description="""
-    Black non-venomous snake which climbs trees and can grow up to six feet in length.
-    """,
     category="reptile", 
     picture_url="http://upload.wikimedia.org/wikipedia/commons/d/d4/Black_Rat_Snake.jpg")
 
@@ -129,9 +112,6 @@ session.commit()
 # add tulip tree
 tulipTree = Species(common_name="Tuliptree",
     scientific_name="Liriodendron tulipifera", 
-    description="""
-    One of the largest hardwood trees in North America, with unique leaf shape and green tulip-shaped flowers.
-    """,
     category="tree", 
     picture_url="http://upload.wikimedia.org/wikipedia/commons/3/37/Liriodendron_tulipifera_%28arbre%29_-_Laeken.JPG")
 
@@ -150,9 +130,6 @@ session.commit()
 # add Red-bellied woodpecker
 rbWoodpecker = Species(common_name="Red-bellied woodpecker",
     scientific_name="Melanerpes carolinus", 
-    description="""
-    Medium woodpecker with strikingly barred backs and red caps. 
-    """,
     category="bird", 
     picture_url="http://upload.wikimedia.org/wikipedia/commons/1/12/Red-bellied_Woodpecker-27527.jpg")
 
@@ -190,10 +167,6 @@ session.commit()
 # add Eastern Towhee
 towhee = Species(common_name="Eastern Towhee",
     scientific_name="Pipilo erythrophthalmus", 
-    description="""
-    An oversized sparrow with bold black and warm reddish-browns.  
-    Often rummaging in undergrowth. Sings classic "drink-your-tea!" song.
-    """,
     category="bird", 
     picture_url="http://upload.wikimedia.org/wikipedia/commons/2/21/Pipilo_erythrophthalmus_-Quabbin_Reservoir%2C_Massachusetts%2C_USA_-male-8.jpg")
 
