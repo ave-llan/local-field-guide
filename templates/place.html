@@ -27,10 +27,16 @@
             <div class="speciesCard">
                 <img src="{{occurrence.species.picture_url}}">
                 <h3>{{occurrence.species.common_name}}</h3>
-                <p><i>{{occurrence.species.scientific_name}}</i></p>
+                <p>
+                    <i>{{occurrence.species.scientific_name}}</i>
+                </p>
                 <h4>Tip</h4>
                 <p>
                     {{occurrence.tip}}
+                </p>
+                <p>
+                    <a href="#">Edit</a> | 
+                    <a href="#">Remove</a>
                 </p>
 
             </div>
