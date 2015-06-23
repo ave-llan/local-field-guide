@@ -38,6 +38,17 @@ class SpeciesOccurrence(Base):
     place = relationship("Place", backref=backref('species'))
     species = relationship("Species")
 
+    # serialize for JSON API
+    @property
+    def serialize(self):
+
+        return {
+            'common_name': self.species.common_name,
+            'scientific_name': self.species.scientific_name,
+            'tip': self.tip,
+            'species_id': self.species_id,
+        }
+
 
 
 

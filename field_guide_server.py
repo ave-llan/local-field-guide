@@ -107,6 +107,15 @@ def removeOccurrence(place_id, species_id):
         return render_template('deleteoccurrence.html', occurrence=occurrence)
 
 
+# API Endpoint
+@app.route('/place/<int:place_id>/JSON')
+def placeFieldGuideJSON(place_id):
+    place = session.query(Place).filter_by(id=place_id).one()
+    occurrences = session.query(SpeciesOccurrence).\
+                    filter_by(place_id = place_id).\
+                    all()
+    return jsonify(fieldGuide=[species.serialize for species in occurrences])
+
 
 if __name__ == '__main__':
     app.secret_key = 'super_secret_key'
