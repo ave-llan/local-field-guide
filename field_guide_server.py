@@ -38,8 +38,7 @@ def createPlace():
                     latitude = request.form['latitude'])
         session.add(newPlace)
         session.commit()
-        # redirect user back to the main page
-        # TODO add flash here
+        flash("New Place Added")
         return redirect(url_for('homePage'))
     else:
         return render_template('newplace.html')
@@ -54,8 +53,7 @@ def addSpecies():
                     picture_url = request.form['picture_url'])
         session.add(newSpecies)
         session.commit()
-        # redirect user back to the main page
-        # TODO add flash here
+        flash("New Species Added")
         return redirect(url_for('homePage'))
     else:
         return render_template('addspecies.html')
@@ -71,8 +69,7 @@ def addSpeciesToPlace(place_id):
         print 'adding', newSpeciesOccurrence
         session.add(newSpeciesOccurrence)
         session.commit()
-        # redirect user back to the main page
-        # TODO add flash here
+        flash("New Species Occurrence Added")
         return redirect(url_for('placeFieldGuide', place_id=place_id))
     else:
         place = session.query(Place).filter_by(id=place_id).one()
@@ -88,7 +85,7 @@ def editSpeciesOccurrence(place_id, species_id):
             occurrence.tip = request.form['tip']
         session.add(occurrence)
         session.commit()
-        # redirect to the page for the place of this species occurrence
+        flash("Species tip edited")
         return redirect(url_for('placeFieldGuide', place_id=place_id))
 
     else:
@@ -102,6 +99,7 @@ def removeOccurrence(place_id, species_id):
         occurrence = session.query(SpeciesOccurrence).filter_by(place_id=place_id, species_id=species_id).one()
         session.delete(occurrence)
         session.commit()
+        flash("Species occurrence removed")
         return redirect(url_for('placeFieldGuide', place_id=place_id))
 
     else:
