@@ -67,8 +67,8 @@ def addSpeciesToPlace(place_id):
         sp = session.query(Species).filter_by(common_name=request.form['species']).one()
         newSpeciesOccurrence = SpeciesOccurrence(place_id = place_id,
                     species_id = sp.id,
-                    prevalence = request.form['prevalence'],
                     tip = request.form['tip'])
+        print 'adding', newSpeciesOccurrence
         session.add(newSpeciesOccurrence)
         session.commit()
         # redirect user back to the main page
@@ -83,7 +83,6 @@ def addSpeciesToPlace(place_id):
 @app.route('/place/<int:place_id>/<int:species_id>/editoccurrence', methods=['GET', 'POST'])
 def editSpeciesOccurrence(place_id, species_id):
     if request.method == 'POST':
-        print 'trying to post'
         occurrence = session.query(SpeciesOccurrence).filter_by(place_id=place_id, species_id=species_id).one()
         if request.form['tip']:
             occurrence.tip = request.form['tip']
@@ -95,6 +94,20 @@ def editSpeciesOccurrence(place_id, species_id):
     else:
         occurrence = session.query(SpeciesOccurrence).filter_by(place_id=place_id, species_id=species_id).one()
         return render_template('editspeciesoccurrence.html', occurrence=occurrence)
+
+
+@app.route('/place/<int:place_id>/<int:species_id>/removeoccurrence', methods=['GET', 'POST'])
+def removeOccurrence(place_id, species_id):
+    if request.method == 'POST':
+        occurrence = session.query(SpeciesOccurrence).filter_by(place_id=place_id, species_id=species_id).one()
+        session.delete(occurrence)
+        session.commit()
+        return redirect(url_for('placeFieldGuide', place_id=place_id))
+
+    else:
+        occurrence = session.query(SpeciesOccurrence).filter_by(place_id=place_id, species_id=species_id).one()
+        return render_template('deleteoccurrence.html', occurrence=occurrence)
+
 
 
 if __name__ == '__main__':

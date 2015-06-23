@@ -36,7 +36,7 @@
                 </p>
                 <p>
                     <a href="{{url_for('editSpeciesOccurrence', place_id=place.id, species_id=occurrence.species.id)}}">Edit</a> | 
-                    <a href="#">Remove</a>
+                    <a href="{{url_for('removeOccurrence', place_id=place.id, species_id=occurrence.species.id)}}">Remove</a>
                 </p>
 
             </div>
