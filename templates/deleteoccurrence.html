@@ -1,31 +1,22 @@
-<! DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8">
-    <title>Local Field Guide</title>
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', 
-        filename='styles.css') }}">
-</head>
+{% extends "main.html" %}
+{% block content %}
+{% include "header.html" %}
 
-<body>
+<div class="header">
+    <h1><a href="{{url_for('homePage') }}">Local Field Guide</a></h1>
+</div>
 
-    <div class="header">
-        <h1><a href="{{url_for('homePage') }}">Local Field Guide</a></h1>
-    </div>
+<div class="mainContent">
 
-    <div class="mainContent">
+    <h2>Are you sure you want to remove {{occurrence.species.common_name}} from the field guide for  {{occurrence.place.name}}?</h2>
+    <form action="{{url_for('removeOccurrence', place_id=occurrence.place_id, species_id=occurrence.species_id)}}" method="POST">
 
-        <h2>Are you sure you want to remove {{occurrence.species.common_name}} from the field guide for  {{occurrence.place.name}}?</h2>
-        <form action="{{url_for('removeOccurrence', place_id=occurrence.place_id, species_id=occurrence.species_id)}}" method="POST">
+        <input type='submit' value='Remove'>
+        <a href="{{url_for('placeFieldGuide', place_id=occurrence.place_id)}}">Cancel</a>
 
-            <input type='submit' value='Remove'>
-            <a href="{{url_for('placeFieldGuide', place_id=occurrence.place_id)}}">Cancel</a>
-
-        </form>
+    </form>
 
 
-    </div>
+</div>
 
-</body>
-
-</html>
+{% endblock content %}

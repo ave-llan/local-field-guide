@@ -1,42 +1,30 @@
-<! DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8">
-    <title>Local Field Guide</title>
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', 
-        filename='styles.css') }}">
-</head>
+{% extends "main.html" %}
+{% block content %}
+{% include "header.html" %}
 
-<body>
-    <div class="header">
-        <h1><a href="{{url_for('homePage') }}">Local Field Guide</a></h1>
-    </div>
+<h1>Add Species to the Field Guide for {{place.name}}</h1>
 
-    <h1>Add Species to the Field Guide for {{place.name}}</h1>
+<form action="{{url_for('addSpeciesToPlace', place_id = place.id) }}" method="POST">
 
-    <form action="{{url_for('addSpeciesToPlace', place_id = place.id) }}" method="POST">
+    <p>Species:</p>
+    <select name='species'>
+        {% for s in species %}
+        <option>
+            {{s.common_name}}
+        </option>
+        {% endfor %}
+    </select>
+    <p>
+        Species not yet in the database? <a href="{{url_for('addSpecies') }}">Add a new species here.</a>
+    </p>
 
-        <p>Species:</p>
-        <select name='species'>
-            {% for s in species %}
-            <option>
-                {{s.common_name}}
-            </option>
-            {% endfor %}
-        </select>
-        <p>
-            Species not yet in the database? <a href="{{url_for('addSpecies') }}">Add a new species here.</a>
-        </p>
+    <p>Where in {{place.name}} is this species usually found? How common is it? Any tips on how to find the species?</p>
+    <textarea name='tip'></textarea>
 
-        <p>Where in {{place.name}} is this species usually found? How common is it? Any tips on how to find the species?</p>
-        <textarea name='tip'></textarea>
+    </br>
+    </br>
+    <input type='submit' value='Add Species'>
 
-        </br>
-        </br>
-        <input type='submit' value='Add Species'>
+</form>
 
-    </form>
-
-</body>
-
-</html>
+{% endblock content %}

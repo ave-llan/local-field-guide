@@ -1,17 +1,6 @@
-<! DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8">
-    <title>Local Field Guide</title>
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', 
-        filename='styles.css') }}">
-</head>
-
-<body>
-
-    <div class="header">
-        <h1><a href="{{url_for('homePage') }}">Local Field Guide</a></h1>
-    </div>
+{% extends "main.html" %}
+{% block content %}
+{% include "header.html" %}
 
     <div class="mainContent">
 
@@ -55,6 +44,4 @@
 
     </div>
 
-</body>
-
-</html>
+{% endblock content %}
