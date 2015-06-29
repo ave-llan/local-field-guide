@@ -29,7 +29,7 @@ $cards.each(function() {
 
     var flickrUrl = 'https://api.flickr.com/services/rest/?' +
                     'method=flickr.photos.search&api_key=6417b277d897c7a6575bd941770bd1e5' +
-                    '&sort=interestingness-desc&per_page=1&format=json&nojsoncallback=1' +
+                    '&sort=relevance&per_page=1&format=json&nojsoncallback=1' +
                     '&text=' + sciName;
     console.log(flickrUrl);
     $.ajax({
