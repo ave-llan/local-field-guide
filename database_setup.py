@@ -24,7 +24,6 @@ class Species(Base):
     scientific_name = Column(String(80), nullable=False)
     # mammal, bird, insect, reptile, fish, butterfly, mushroom, flower, tree
     category = Column(String(80), nullable=False)
-    picture_url = Column(String(250))
 
 
 class SpeciesOccurrence(Base):

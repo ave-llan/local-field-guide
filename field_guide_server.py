@@ -49,8 +49,7 @@ def addSpecies():
     if request.method == 'POST':
         newSpecies = Species(common_name = request.form['commonName'],
                     scientific_name = request.form['scientificName'],
-                    category = request.form['category'],
-                    picture_url = request.form['picture_url'])
+                    category = request.form['category'])
         session.add(newSpecies)
         session.commit()
         flash("New Species Added")
