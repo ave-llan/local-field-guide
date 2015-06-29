@@ -14,11 +14,14 @@ $cards.each(function(card) {
         success: function(data) {
             console.log(data);
             var key = Object.keys(data.query.pages)[0];
-            var url = 'http://en.wikipedia.org/wiki/' + data.query.pages[key].title;
-            description.text(
-                data.query.pages[key].extract 
-                );
-            description.append(' <a href="' + url + '">Wikipedia</a>');
+            // if key is -1, no article was found on wikipedia
+            if (key != -1) {
+                var url = 'http://en.wikipedia.org/wiki/' + data.query.pages[key].title;
+                description.text(
+                    data.query.pages[key].extract 
+                    );
+                description.append(' <a href="' + url + '">Wikipedia</a>');
+            }
         }
     });
 })
