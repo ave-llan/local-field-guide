@@ -1,0 +1,39 @@
+{% extends "main.html" %}
+{% block content %}
+{% include "header.html" %}
+
+<!-- BEGIN Pre-requisites for Google platform library-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js">
+</script>
+<script src="https://apis.google.com/js/client:platform.js?onload=start" async defer>
+</script>
+<!-- END Pre-requisites for Google platform library-->
+
+<!-- Initialize the GoogleAuth object -->
+<script>
+  function start() {
+    gapi.load('auth2', function() {
+      auth2 = gapi.auth2.init({
+        client_id: '490110762235-e2m329a4fn8e8to5tkuhiplm5vrrtdgj.apps.googleusercontent.com',
+        // Scopes to request in addition to 'profile' and 'email'
+        //scope: 'additional_scope'
+      });
+    });
+  }
+</script>
+
+<div id="signinButton">
+    <span class="g-signin"
+        data-scope="openid email"
+        data-clientid="490110762235-e2m329a4fn8e8to5tkuhiplm5vrrtdgj.apps.googleusercontent.com"
+        data-redirecturi="postmessage"
+        data-accesstype="offline"
+        data-cookiepolicy="single_host_origin"
+        data-callback="signInCallback"
+        data-approvalprompt="force">
+    </span>
+</div>
+
+<div id="result"></div>
+
+{% endblock content %}
