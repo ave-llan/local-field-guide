@@ -4,7 +4,7 @@ app = Flask(__name__)
 ## import CRUD Operations ##
 from sqlalchemy import create_engine, desc
 from sqlalchemy.orm import sessionmaker
-from database_setup import Base, Place, Species, SpeciesOccurrence
+from database_setup import Base, User, Place, Species, SpeciesOccurrence
 
 # Imports for oAuth
 from flask import session as login_session
@@ -276,7 +276,9 @@ def placeFieldGuideJSON(place_id):
     occurrences = session.query(SpeciesOccurrence).\
                     filter_by(place_id = place_id).\
                     all()
-    return jsonify(fieldGuide=[species.serialize for species in occurrences])
+    return jsonify(
+        name=place.name,
+        species=[species.serialize for species in occurrences])
 
 
 if __name__ == '__main__':
