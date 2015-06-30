@@ -191,7 +191,7 @@ def createPlace():
                     latitude = request.form['latitude'])
         session.add(newPlace)
         session.commit()
-        flash("New Place Added")
+        flash("'" + request.form['name'] + "' Field Guide created")
         return redirect(url_for('homePage'))
     else:
         return render_template('newplace.html')
@@ -227,7 +227,8 @@ def addSpeciesToPlace(place_id):
         print 'adding', newSpeciesOccurrence
         session.add(newSpeciesOccurrence)
         session.commit()
-        flash("New Species Occurrence Added")
+        place = session.query(Place).filter_by(id=place_id).one()
+        flash(request.form['species'] + " added to " + place.name)
         return redirect(url_for('placeFieldGuide', place_id=place_id))
     else:
         place = session.query(Place).filter_by(id=place_id).one()
