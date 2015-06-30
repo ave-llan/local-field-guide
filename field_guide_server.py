@@ -49,7 +49,8 @@ def gconnect():
         # upgrade the authorization code into a credentials object
         oauth_flow = flow_from_clientsecrets('client_secrets.json', scope='')
         oauth_flow.redirect_uri = 'postmessage'
-        credentials = oath_flow.step2_exchange(code)
+        credentials = oauth_flow.step2_exchange(code)
+
     except FlowExchangeError:
         response = make_response(
             json.dumps('Failed to upgrade the authorization code.'), 401)
@@ -95,7 +96,7 @@ def gconnect():
     
 
     # store the access toekn in the session for later use
-    login_session['credentials'] = credentials
+    login_session['access_token'] = credentials.access_token
     login_session['gplus_id'] = gplus_id
 
     # get user info
@@ -117,10 +118,44 @@ def gconnect():
     output += login_session['picture']
     output += ' " style = "width: 300px; height: 300px;border-radius: 150px;-webkit-border-radius: 150px;-moz-border-radius: 150px;"> '
     flash("you are now logged in as %s" % login_session['username'])
-    print "done!"
+    print "google login successful!"
     return output
 
 
+# DISCONNECT - Revoke a current user's token and reset their login_session.
+@app.route('/gdisconnect')
+def gdisconnect():
+    # only disconnect a connected user
+    access_token = login_session.get('access_token')
+    if access_token is None:
+        response = make_response(
+            json.dumps('Current user not connected.'), 401)
+        response.headers['Content-Type'] = 'application/json'
+        return response
+    revokeTokenUrl = 'https://accounts.google.com/o/oauth2/revoke?token=%s' % access_token
+    h = httplib2.Http()
+    result = h.request(revokeTokenUrl, 'GET')[0]
+
+    if result['status'] == '200':
+        # Reset the user's session
+        del login_session['access_token']
+        del login_session['gplus_id']
+        del login_session['username']
+        del login_session['email']
+        del login_session['picture']
+
+        response = make_response(
+            json.dumps('Successfully disconnected.'), 200)
+        response.headers['Content-Type'] = 'application/json'
+        print 'successfully logged out of google'
+        return response
+
+    if result['status'] != '200':
+        # For whatever reason, the given token was invalid.
+        response = make_response(
+            json.dumps('Failed to revoke token for given user.', 400))
+        response.headers['Content-Type'] = 'application/json'
+        return response
 
 
 
@@ -128,6 +163,8 @@ def gconnect():
 # home page
 @app.route('/')
 def homePage():
+    print 'logged in as:'
+    print login_session.get('username')
     places = session.query(Place).all()
     # last 10 species added to database
     latestSpecies = session.query(Species).order_by(desc(Species.id)).all()[:10]
