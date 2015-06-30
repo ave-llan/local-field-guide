@@ -199,6 +199,9 @@ def createPlace():
 
 @app.route('/addspecies', methods=['GET', 'POST'])
 def addSpecies():
+    if 'username' not in login_session:
+        flash("Please login to add a new species to the database.")
+        return redirect('/login')
     if request.method == 'POST':
         newSpecies = Species(common_name = request.form['commonName'],
                     scientific_name = request.form['scientificName'],
@@ -213,6 +216,9 @@ def addSpecies():
 
 @app.route('/place/<int:place_id>/addspeciestoplace/', methods=['GET', 'POST'])
 def addSpeciesToPlace(place_id):
+    if 'username' not in login_session:
+        flash("Please login to add a species to this Field Guide.")
+        return redirect('/login')
     if request.method == 'POST':
         sp = session.query(Species).filter_by(common_name=request.form['species']).one()
         newSpeciesOccurrence = SpeciesOccurrence(place_id = place_id,
