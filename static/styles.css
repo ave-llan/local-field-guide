@@ -58,11 +58,16 @@ h1, h2, h3, h4 {
     height: auto;
 }
 
-.speciesCard figcaption {
+.speciesCard figcaption{
   text-align: right;
   font-style: italic;
   font-size: 0.8em;
   opacity: 0.7;
+}
+
+.speciesCard figcaption a {
+  text-decoration: none;
+  color: #111111;
 }
 
 #common-name {
