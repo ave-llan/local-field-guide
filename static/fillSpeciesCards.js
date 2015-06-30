@@ -40,11 +40,13 @@ $cards.each(function() {
                            '.staticflickr.com/' + photo.server +
                            '/' + photo.id + '_' + photo.secret +
                            '_z.jpg';
+            var photoPage = 'https://www.flickr.com/photos/' +
+                            photo.owner + '/' + photo.id;
             console.log(photoUrl);
             card.prepend(
                 '<figure>' +
                 '<img src="' + photoUrl + '">' +
-                '<figcaption>Image from Flickr</figcaption>' +
+                '<figcaption><a href="' + photoPage + '" target="_blank">Image from Flickr</a></figcaption>' +
                 '</figure>'
                 );
         }
