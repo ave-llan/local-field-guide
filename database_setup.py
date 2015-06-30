@@ -7,6 +7,15 @@ from sqlalchemy import create_engine
 Base = declarative_base()
 
 
+class User(Base):
+    __tablename__ = 'user'
+
+    id = Column(Integer, primary_key=True)
+    name = Column(String(250), nullable=False)
+    email = Column(String(250), nullable=False)
+    picture = Column(String(250))
+
+
 class Place(Base):
     __tablename__ = 'place'
 
@@ -14,6 +23,8 @@ class Place(Base):
     name = Column(String(250), nullable=False)
     longitude = Column(Float, nullable=False)
     latitude = Column(Float, nullable=False)
+    #user_id = Column(Integer, ForeignKey('user.id'), primary_key=True)
+    #user = relationship("User")
 
 
 class Species(Base):
@@ -40,12 +51,11 @@ class SpeciesOccurrence(Base):
     # serialize for JSON API
     @property
     def serialize(self):
-
         return {
             'common_name': self.species.common_name,
             'scientific_name': self.species.scientific_name,
-            'tip': self.tip,
-            'species_id': self.species_id,
+            'type': self.species.category,
+            'tip': self.tip
         }
 
 
