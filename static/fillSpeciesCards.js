@@ -44,6 +44,7 @@ $cards.each(function() {
             card.prepend(
                 '<figure>' +
                 '<img src="' + photoUrl + '">' +
+                '<figcaption>Image from Flickr</figcaption>' +
                 '</figure>'
                 );
         }
