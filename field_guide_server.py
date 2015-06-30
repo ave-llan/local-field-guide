@@ -6,11 +6,27 @@ from sqlalchemy import create_engine, desc
 from sqlalchemy.orm import sessionmaker
 from database_setup import Base, Place, Species, SpeciesOccurrence
 
+# Imports for oAuth
+from flask import session as login_session
+import random, string
+
+
 # Create session and connect to DB
 engine = create_engine('sqlite:///fieldguide.db')
 Base.metadata.bind = engine
 DBSession = sessionmaker(bind=engine)
 session = DBSession()
+
+
+@app.route('/login')
+def showLogin():
+    # 32 charachter state key
+    state=''.join(random.choice(string.ascii_uppercase + string.digits) for x in xrange(32))
+    login_session['state'] = state
+    return "The current session state is %s" %login_session['state']
+
+
+
 
 # home page
 @app.route('/')
