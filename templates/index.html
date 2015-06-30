@@ -1,18 +1,8 @@
 {% extends "main.html" %}
 {% block content %}
 {% include "header.html" %}
-
+{% include "flashmessages.html" %}
     <div class="mainContent">
-
-        {% with messages = get_flashed_messages() %}
-            {% if messages %}
-                <ul>
-                    {% for message in messages %}
-                        <li><strong> {{ message }} </strong></li>
-                    {% endfor %}
-                </ul>
-            {% endif %}
-        {% endwith %}
 
         <div class="categoryList">
             <h2>Places</h2>
