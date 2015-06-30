@@ -1,3 +1,10 @@
+/* resets */
+
+figure {
+  margin: 0;
+}
+
+/* document wide */
 body {
     font-family: Georgia, serif;
     font-size: 15px;
