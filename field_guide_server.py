@@ -238,6 +238,9 @@ def addSpeciesToPlace(place_id):
 
 @app.route('/place/<int:place_id>/<int:species_id>/editoccurrence', methods=['GET', 'POST'])
 def editSpeciesOccurrence(place_id, species_id):
+    if 'username' not in login_session:
+        flash("Please login to edit the tips in this Field Guide.")
+        return redirect('/login')
     if request.method == 'POST':
         occurrence = session.query(SpeciesOccurrence).filter_by(place_id=place_id, species_id=species_id).one()
         if request.form['tip']:
