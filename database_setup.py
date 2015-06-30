@@ -23,8 +23,8 @@ class Place(Base):
     name = Column(String(250), nullable=False)
     longitude = Column(Float, nullable=False)
     latitude = Column(Float, nullable=False)
-    #user_id = Column(Integer, ForeignKey('user.id'), primary_key=True)
-    #user = relationship("User")
+    user_id = Column(Integer, ForeignKey('user.id'))
+    user = relationship("User")
 
 
 class Species(Base):
