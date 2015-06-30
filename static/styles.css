@@ -58,11 +58,19 @@ h1, h2, h3, h4 {
     height: auto;
 }
 
+.speciesCard figcaption {
+  text-align: right;
+  font-style: italic;
+  font-size: 0.8em;
+  opacity: 0.7;
+}
+
 #common-name {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     font-weight: bold;
     color: #111111;
     font-size: 2em;
+    margin: 0;
 }
 
 #scientific-name {
