@@ -5,6 +5,12 @@ figure {
 }
 
 /* document wide */
+
+p {
+  margin-top: 0.7em;
+  margin-bottom: 0;
+}
+
 body {
     font-family: Georgia, serif;
     font-size: 15px;
@@ -99,4 +105,5 @@ h1, h2, h3, h4 {
 
 #remove-control {
     text-align: right;
+    margin: 0;
 }

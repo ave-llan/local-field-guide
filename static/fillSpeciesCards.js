@@ -21,7 +21,7 @@ $cards.each(function() {
                 description.text(
                     data.query.pages[key].extract 
                     );
-                description.append(' <a href="' + url + '">Wikipedia</a>');
+                description.append(' <a href="' + url + '" target="_blank">Wikipedia</a>');
             }
         }
     });
