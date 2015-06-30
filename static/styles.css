@@ -61,8 +61,8 @@ h1, h2, h3, h4 {
 .speciesCard figcaption{
   text-align: right;
   font-style: italic;
-  font-size: 0.8em;
-  opacity: 0.7;
+  font-size: 0.6em;
+  opacity: 0.4;
 }
 
 .speciesCard figcaption a {
@@ -79,4 +79,17 @@ h1, h2, h3, h4 {
 
 #scientific-name {
     font-style: italic;
+}
+
+#remove-control {
+    text-align: right;
+}
+
+.card-control {
+  opacity: 0.6;
+  font-size: 0.7em;
+}
+
+.card-control a {
+  text-decoration: none;
 }

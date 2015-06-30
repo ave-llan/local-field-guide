@@ -33,15 +33,15 @@
 
             <p id="scientific-name">{{occurrence.species.scientific_name}}</p>
 
+            <p>{{occurrence.tip}} <span class="card-control">[<a href="{{url_for('editSpeciesOccurrence', place_id=place.id, species_id=occurrence.species.id)}}">Edit</a>]</span></p>
+
             <!-- Filled with wikipedia AJAX call-->
             <p id="species-description"></p>
 
-            <h4>Tip</h4>
-            <p>{{occurrence.tip}}</p>
-
-            <p>
-                <a href="{{url_for('editSpeciesOccurrence', place_id=place.id, species_id=occurrence.species.id)}}">Edit</a> | 
-                <a href="{{url_for('removeOccurrence', place_id=place.id, species_id=occurrence.species.id)}}">Remove</a>
+            <p id="remove-control">
+                <span class="card-control">
+                    [<a href="{{url_for('removeOccurrence', place_id=place.id, species_id=occurrence.species.id)}}">Remove</a>]
+                </span>
             </p>
 
         </div>
