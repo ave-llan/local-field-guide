@@ -1,0 +1,79 @@
+{
+  "latitude": 38.924066,
+  "longitude": -77.046051,
+  "name": "Walter Pierce Park",
+  "species": [
+    {
+      "common_name": "Chimney Swift",
+      "scientific_name": "Chaetura pelagica",
+      "tip": "In the summer, almost always flying high above the park.",
+      "type": "bird"
+    },
+    {
+      "common_name": "Northern Cardinal",
+      "scientific_name": "Cardinalis cardinalis",
+      "tip": "Seen and heard year round.  Likes to perch near the top of trees.",
+      "type": "bird"
+    },
+    {
+      "common_name": "White-Tailed Deer",
+      "scientific_name": "Odocoileus virginianus",
+      "tip": "Freqently seen grazing or resting in the valley behind the basketball court.",
+      "type": "mammal"
+    },
+    {
+      "common_name": "American Red Fox",
+      "scientific_name": "Vulpes vulpes fulvus",
+      "tip": "Rarely seen in the valley behind the basketball court.  Look for motion under the vegetation.",
+      "type": "mammal"
+    },
+    {
+      "common_name": "Black Rat Snake",
+      "scientific_name": "Elaphe obsoleta",
+      "tip": "In the summer of 2013, several large rat snakes fell from the trees above the children's playground.",
+      "type": "reptile"
+    },
+    {
+      "common_name": "Tuliptree",
+      "scientific_name": "Liriodendron tulipifera",
+      "tip": "Medium tree near the drinking fountain, up above the basketball court.",
+      "type": "tree"
+    },
+    {
+      "common_name": "Red-bellied woodpecker",
+      "scientific_name": "Melanerpes carolinus",
+      "tip": "Often seen and heard in the woods behind the dog park and in the trees on the other side of the valley.",
+      "type": "bird"
+    },
+    {
+      "common_name": "Tufted Titmouse",
+      "scientific_name": "Baeolophus bicolor",
+      "tip": "Common high in the trees, especially on the borders of the park.",
+      "type": "bird"
+    },
+    {
+      "common_name": "Brown Creeper",
+      "scientific_name": "Certhia americana",
+      "tip": "Look carefully on the trees, it may be creeping.",
+      "type": "bird"
+    },
+    {
+      "common_name": "Squirrel",
+      "scientific_name": "Sciurus carolinensis",
+      "tip": "Look in the circle, Look in the trees",
+      "type": "mammal"
+    },
+    {
+      "common_name": "Coyote",
+      "scientific_name": "Canis latrans",
+      "tip": "Sometimes heard howling at night in the forest.",
+      "type": "mammal"
+    },
+    {
+      "common_name": "Barred owl",
+      "scientific_name": "Strix varia",
+      "tip": "Sometimes heard calling at night from the woods.",
+      "type": "bird"
+    }
+  ]
+}

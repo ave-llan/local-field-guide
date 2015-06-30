@@ -1,0 +1,61 @@
+{
+  "latitude": 38.91679,
+  "longitude": -77.064373,
+  "name": "Dumbarton Oaks Park",
+  "species": [
+    {
+      "common_name": "Chimney Swift",
+      "scientific_name": "Chaetura pelagica",
+      "tip": "high in the air",
+      "type": "bird"
+    },
+    {
+      "common_name": "Northern Cardinal",
+      "scientific_name": "Cardinalis cardinalis",
+      "tip": "Seen and heard year round throughout the park.",
+      "type": "bird"
+    },
+    {
+      "common_name": "White-Tailed Deer",
+      "scientific_name": "Odocoileus virginianus",
+      "tip": "Often seen on the northwest side of the park in the woods around Observatory Circle and Whitehaven Street.",
+      "type": "mammal"
+    },
+    {
+      "common_name": "Eastern Towhee",
+      "scientific_name": "Pipilo erythrophthalmus",
+      "tip": "Often heard rummaging in the bushes up the hill that leads to the fenced Dumbarton Oaks Gardens.",
+      "type": "bird"
+    },
+    {
+      "common_name": "Shorttail Shrew",
+      "scientific_name": "Blarina brevicauda",
+      "tip": "Basically impossible to find, but it is here.",
+      "type": "mammal"
+    },
+    {
+      "common_name": "Raccoon",
+      "scientific_name": "Procyon lotor",
+      "tip": "Secretive ",
+      "type": "mammal"
+    },
+    {
+      "common_name": "Squirrel",
+      "scientific_name": "Sciurus carolinensis",
+      "tip": "Friendly and abundant here.",
+      "type": "mammal"
+    },
+    {
+      "common_name": "Southern Flying Squirrel",
+      "scientific_name": "Glaucomys volans",
+      "tip": "Wait at night under a tree until you hear a squeaky sound",
+      "type": "mammal"
+    },
+    {
+      "common_name": "Yellow-billed cuckoo",
+      "scientific_name": "Coccyzus americanus",
+      "tip": "Secretive and very rarely seen.  Listen for cuckoo call.",
+      "type": "bird"
+    }
+  ]
+}
