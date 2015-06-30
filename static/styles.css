@@ -81,8 +81,11 @@ h1, h2, h3, h4 {
     font-style: italic;
 }
 
-#remove-control {
-    text-align: right;
+#species-description a {
+  color: #111111;
+  font-style: italic;
+  font-size: 0.7em;
+  opacity: 0.6;
 }
 
 .card-control {
@@ -92,4 +95,8 @@ h1, h2, h3, h4 {
 
 .card-control a {
   text-decoration: none;
+}
+
+#remove-control {
+    text-align: right;
 }
