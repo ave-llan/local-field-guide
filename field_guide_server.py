@@ -208,7 +208,7 @@ def addSpecies():
                     category = request.form['category'])
         session.add(newSpecies)
         session.commit()
-        flash("New Species Added")
+        flash(request.form['commonName'] + " added to species database")
         return redirect(url_for('homePage'))
     else:
         return render_template('addspecies.html')
@@ -254,6 +254,9 @@ def editSpeciesOccurrence(place_id, species_id):
 
 @app.route('/place/<int:place_id>/<int:species_id>/removeoccurrence', methods=['GET', 'POST'])
 def removeOccurrence(place_id, species_id):
+    if 'username' not in login_session:
+        flash("Please login to remove a species from this Field Guide.")
+        return redirect('/login')
     if request.method == 'POST':
         occurrence = session.query(SpeciesOccurrence).filter_by(place_id=place_id, species_id=species_id).one()
         session.delete(occurrence)
