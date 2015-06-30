@@ -9,6 +9,8 @@ Python >2.7 and <3.0.
 
 [jQuery](https://jquery.com/)
 
+Python modules:
+[oathu2client](https://pypi.python.org/pypi/oauth2client)
 ...
 
 
