@@ -182,6 +182,9 @@ def placeFieldGuide(place_id):
 
 @app.route('/place/create/', methods=['GET', 'POST'])
 def createPlace():
+    if 'username' not in login_session:
+        flash("Please login to create a new field guide.")
+        return redirect('/login')
     if request.method == 'POST':
         newPlace = Place(name = request.form['name'],
                     longitude = request.form['longitude'],
