@@ -29,6 +29,7 @@ $cards.each(function() {
     var flickrUrl = 'https://api.flickr.com/services/rest/?' +
                     'method=flickr.photos.search&api_key=6417b277d897c7a6575bd941770bd1e5' +
                     '&sort=relevance&per_page=1&format=json&nojsoncallback=1' +
+                    '&license=1,2,3,4,5,6,7,8,9,10' +
                     '&text=' + sciName;
     $.ajax({
         url: flickrUrl,
