@@ -124,7 +124,8 @@ def gconnect():
     output += '!</h1>'
     output += '<img src="'
     output += login_session['picture']
-    output += ' " style = "width: 300px; height: 300px;border-radius: 150px;-webkit-border-radius: 150px;-moz-border-radius: 150px;"> '
+    output += ' " style = "width: 300px; height: 300px;border-radius: 150px;'
+    output += '-webkit-border-radius: 150px;-moz-border-radius: 150px;"> '
     flash("you are now logged in as %s" % login_session['username'])
     print "google login successful!"
     return output
@@ -202,7 +203,8 @@ def homePage():
     places = session.query(Place).all()
     # last 10 species added to database
     latestSpecies = session.query(Species).order_by(desc(Species.id)).all()[:10]
-    return render_template('index.html', places = places, latestSpecies = latestSpecies)
+    return render_template('index.html', places = places,
+                        latestSpecies = latestSpecies, login_session = login_session)
 
 
 @app.route('/place/<int:place_id>/')
@@ -211,7 +213,8 @@ def placeFieldGuide(place_id):
     occurrences = session.query(SpeciesOccurrence).\
                     filter_by(place_id = place_id).\
                     all()
-    return render_template('place.html', place=place, occurrences=occurrences)
+    return render_template('place.html', place=place, occurrences=occurrences,
+                        login_session = login_session)
 
 
 @app.route('/place/create/', methods=['GET', 'POST'])
@@ -228,7 +231,7 @@ def createPlace():
         flash("'" + request.form['name'] + "' Field Guide created")
         return redirect(url_for('homePage'))
     else:
-        return render_template('newplace.html')
+        return render_template('newplace.html', login_session = login_session)
 
 
 @app.route('/addspecies', methods=['GET', 'POST'])
@@ -245,7 +248,7 @@ def addSpecies():
         flash(request.form['commonName'] + " added to species database")
         return redirect(url_for('homePage'))
     else:
-        return render_template('addspecies.html')
+        return render_template('addspecies.html', login_session = login_session)
 
 
 @app.route('/place/<int:place_id>/addspeciestoplace/', methods=['GET', 'POST'])
@@ -267,7 +270,8 @@ def addSpeciesToPlace(place_id):
     else:
         place = session.query(Place).filter_by(id=place_id).one()
         species = session.query(Species).all()
-        return render_template('addspeciestoplace.html', place=place, species=species)
+        return render_template('addspeciestoplace.html', place=place, species=species,
+                        login_session = login_session)
 
 
 @app.route('/place/<int:place_id>/<int:species_id>/editoccurrence', methods=['GET', 'POST'])
@@ -286,7 +290,8 @@ def editSpeciesOccurrence(place_id, species_id):
 
     else:
         occurrence = session.query(SpeciesOccurrence).filter_by(place_id=place_id, species_id=species_id).one()
-        return render_template('editspeciesoccurrence.html', occurrence=occurrence)
+        return render_template('editspeciesoccurrence.html', occurrence=occurrence,
+                        login_session = login_session)
 
 
 @app.route('/place/<int:place_id>/<int:species_id>/removeoccurrence', methods=['GET', 'POST'])
@@ -303,7 +308,8 @@ def removeOccurrence(place_id, species_id):
 
     else:
         occurrence = session.query(SpeciesOccurrence).filter_by(place_id=place_id, species_id=species_id).one()
-        return render_template('deleteoccurrence.html', occurrence=occurrence)
+        return render_template('deleteoccurrence.html', occurrence=occurrence,
+                        login_session = login_session)
 
 
 # API Endpoint
