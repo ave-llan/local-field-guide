@@ -118,6 +118,11 @@ h1, h2, h3, h4 {
   opacity: 0.6;
 }
 
+.tip-attribution {
+  font-style: italic;
+  font-size: 0.9em;
+}
+
 .card-control {
   opacity: 0.6;
   font-size: 0.7em;

@@ -216,7 +216,10 @@ def placeFieldGuide(place_id):
     occurrences = session.query(SpeciesOccurrence).\
                     filter_by(place_id = place_id).\
                     all()
-    return render_template('place.html', place=place, occurrences=occurrences,
+    authorInitials = "".join([i[0] for i in place.user.name.split()])
+    return render_template('place.html', place = place, 
+                        occurrences = occurrences,
+                        authorInitials = authorInitials,
                         login_session = login_session)
 
 
