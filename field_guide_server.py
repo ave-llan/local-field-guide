@@ -244,8 +244,7 @@ def addSpecies():
         return redirect('/login')
     if request.method == 'POST':
         newSpecies = Species(common_name = request.form['commonName'],
-                    scientific_name = request.form['scientificName'],
-                    category = request.form['category'])
+                    scientific_name = request.form['scientificName'])
         session.add(newSpecies)
         session.commit()
         flash(request.form['commonName'] + " added to species database")

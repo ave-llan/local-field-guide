@@ -35,8 +35,6 @@ class Species(Base):
     id = Column(Integer, primary_key=True)
     common_name = Column(String(80), nullable=False)
     scientific_name = Column(String(80), nullable=False)
-    # mammal, bird, insect, reptile, fish, butterfly, mushroom, flower, tree
-    category = Column(String(80), nullable=False)
 
 
 class SpeciesOccurrence(Base):
@@ -56,7 +54,6 @@ class SpeciesOccurrence(Base):
         return {
             'common_name': self.species.common_name,
             'scientific_name': self.species.scientific_name,
-            'type': self.species.category,
             'tip': self.tip
         }
 

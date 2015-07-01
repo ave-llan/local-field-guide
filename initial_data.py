@@ -36,8 +36,7 @@ def fieldGuideFromJSON(filename, owner):
         if sp is None:
             sp = Species(
                 common_name=s['common_name'],
-                scientific_name=s['scientific_name'],
-                category=s['type'])
+                scientific_name=s['scientific_name'])
             session.add(sp)
             session.commit()
         # add species to this field guide

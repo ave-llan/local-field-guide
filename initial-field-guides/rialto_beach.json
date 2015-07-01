@@ -1,4 +1,5 @@
 {
+  "author": "Juan Avellanas",
   "latitude": 47.93548,
   "longitude": -124.646115,
   "name": "Rialto Beach",
@@ -6,86 +7,72 @@
     {
       "common_name": "Raccoon",
       "scientific_name": "Procyon lotor",
-      "tip": "Sometimes visits the beach to eat from tidepools. ",
-      "type": "mammal"
+      "tip": "Sometimes visits the beach to eat from tidepools. "
     },
     {
       "common_name": "Bald Eagle",
       "scientific_name": "Haliaeetus leucocephalus",
-      "tip": "Soaring over the beach or perched high in the sea stacks.",
-      "type": "bird"
+      "tip": "Soaring over the beach or perched high in the sea stacks."
     },
     {
       "common_name": "Killer whale",
       "scientific_name": "Orcinus orca",
-      "tip": "Sometimes seen near shore.",
-      "type": "mammal"
+      "tip": "Sometimes seen near shore."
     },
     {
       "common_name": "Harbor seal",
       "scientific_name": "Phoca vitulina",
-      "tip": "Can be seen briefly popping head out in the waves near shore.",
-      "type": "mammal"
+      "tip": "Can be seen briefly popping head out in the waves near shore."
     },
     {
       "common_name": "Purple Sea Urchin",
       "scientific_name": "Strongylocentrotus purpuratus",
-      "tip": "Common in tide pools.",
-      "type": "fish"
+      "tip": "Common in tide pools."
     },
     {
       "common_name": "Graceful Kelp Crab",
       "scientific_name": "Pugettia gracilis",
-      "tip": "Found scurrying through kelp around tidepools.",
-      "type": "insect"
+      "tip": "Found scurrying through kelp around tidepools."
     },
     {
       "common_name": "Tidepool sculpin",
       "scientific_name": "Oligocottus maculosus",
-      "tip": "Found hiding in tidepools.",
-      "type": "fish"
+      "tip": "Found hiding in tidepools."
     },
     {
       "common_name": "Giant Green Anemone",
       "scientific_name": "Anthopleura xanthogrammica",
-      "tip": "Common in tidepools ",
-      "type": "fish"
+      "tip": "Common in tidepools "
     },
     {
       "common_name": "Pacific Blue Mussel",
       "scientific_name": "Mytilus edulis",
-      "tip": "Enormous beds of blue mussels (thousands and thousands) are revealed at low tide.",
-      "type": "fish"
+      "tip": "Enormous beds of blue mussels (thousands and thousands) are revealed at low tide."
     },
     {
       "common_name": "Pacific blood star",
       "scientific_name": "Henricia leviuscula",
-      "tip": "Brilliant red starfish can be seen clinging to rocks in the surf. ",
-      "type": "fish"
+      "tip": "Brilliant red starfish can be seen clinging to rocks in the surf. "
     },
     {
       "common_name": "Giant Pacific Octopus",
       "scientific_name": "Enteroctopus dofleini",
-      "tip": "Occasionally found in tidepools. ",
-      "type": "fish"
+      "tip": "Occasionally found in tidepools. "
     },
     {
       "common_name": "Song sparrow",
       "scientific_name": "Melospiza melodia",
-      "tip": "Listen for the song coming from the trees near the beach.",
-      "type": "bird"
+      "tip": "Listen for the song coming from the trees near the beach."
     },
     {
       "common_name": "Opalescent Nudibranch",
       "scientific_name": "Hermissenda crassicornis",
-      "tip": "Uncommon sea slug sometimes found in tidepools.",
-      "type": "fish"
+      "tip": "Uncommon sea slug sometimes found in tidepools."
     },
     {
       "common_name": "Graceful Decorator Crab",
       "scientific_name": "Oregonia gracilis",
-      "tip": "Can be found in tidepools, but easy to miss due to camouflage.",
-      "type": "insect"
+      "tip": "Can be found in tidepools, but easy to miss due to camouflage."
     }
   ]
 }
