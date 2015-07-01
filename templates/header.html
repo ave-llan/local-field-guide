@@ -13,6 +13,7 @@
             </p>
         {% else %}
             <p>
+                Signed in as {{ login_session['username'] }} | 
                 <a href="{{ url_for('gdisconnect') }}">
                     Sign out
                 </a>
