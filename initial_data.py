@@ -50,11 +50,11 @@ def fieldGuideFromJSON(filename, owner):
 
 # Create inital user to whom all initial field guides will be assigned
 juan = User(
-    name="Juan Avellanas",
+    name="John Leszczynski",
     email="jrleszczynski@gmail.com",
     picture="http://c2.staticflickr.com/4/3909/15252090882_19df37d630_n.jpg",
-    given_name="Juan",
-    family_name="Avellanas")
+    given_name="John",
+    family_name="Leszczynski")
 session.add(juan)
 session.commit()
 
