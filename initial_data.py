@@ -50,16 +50,18 @@ def fieldGuideFromJSON(filename, owner):
 
 
 # Create inital user to whom all initial field guides will be assigned
-rudy = User(
-    name="Rudy",
-    email="stinkypaw@gmail.com",
-    picture="http://c2.staticflickr.com/4/3909/15252090882_19df37d630_n.jpg")
-session.add(rudy)
+juan = User(
+    name="Juan Avellanas",
+    email="jrleszczynski@gmail.com",
+    picture="http://c2.staticflickr.com/4/3909/15252090882_19df37d630_n.jpg",
+    given_name="Juan",
+    family_name="Avellanas")
+session.add(juan)
 session.commit()
 
 # add all files in initial-field-guides directory to database
 for fgJSON in listdir('initial-field-guides'):
     filepath = 'initial-field-guides/' + fgJSON
-    fieldGuideFromJSON(filepath, rudy)
+    fieldGuideFromJSON(filepath, juan)
 
 
