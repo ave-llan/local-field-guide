@@ -66,6 +66,25 @@ h1, h2, h3, h4 {
 
 
 /* individual Field Guide page */
+.field-guide-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.author-information {
+  display: flex;
+}
+
+#author-picture {
+  width: 60px;
+  height: 60px;
+  border-radius: 30px;
+  -webkit-border-radius: 30px;
+  -moz-border-radius: 30px;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
 #placeName {
     font-size: 3.2em;
 }

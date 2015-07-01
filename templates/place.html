@@ -3,8 +3,23 @@
 {% include "header.html" %}
 
 
-
-<h2 id="placeName">{{place.name}}</h2>
+<div class="field-guide-header">
+    <div id="field-guide-title">
+        <h2 id="placeName">
+            {{place.name}}
+        </h2>
+    </div>
+    <div class="author-information">
+        <p >
+            Field Guide created by {{place.user.name}}
+        </p>
+        {% if place.user.picture %}
+            <div>
+                <img id="author-picture" src="{{place.user.picture}}">
+            </div>
+        {% endif %}
+    </div>
+</div>
 
 {% include "flashmessages.html" %}
 
