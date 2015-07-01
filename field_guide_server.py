@@ -321,6 +321,7 @@ def placeFieldGuideJSON(place_id):
                     all()
     return jsonify(
         name=place.name,
+        author=place.user.name,
         longitude=place.longitude,
         latitude=place.latitude,
         species=[species.serialize for species in occurrences])
