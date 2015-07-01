@@ -105,10 +105,16 @@ def gconnect():
     answer = requests.get(userinfo_url, params=params)
 
     data = answer.json()
+    print 'data keys:'
+    print data.keys()
+    for key in data.keys():
+        print data[key]
 
     login_session['username'] = data['name']
     login_session['picture'] = data['picture']
     login_session['email'] = data['email']
+    login_session['given_name'] = data['given_name']
+    login_session['family_name'] = data['family_name']
 
 
     # check if user exists, if not make a new User
@@ -134,8 +140,9 @@ def gconnect():
 # User Helper Functions
 
 def createUser(login_session):
-    newUser = User(name=login_session['username'], email=login_session[
-                   'email'], picture=login_session['picture'])
+    newUser = User(name=login_session['username'], email=login_session['email'], 
+            picture=login_session['picture'], given_name=login_session['given_name'],
+            family_name=login_session['family_name'])
     session.add(newUser)
     session.commit()
     user = session.query(User).filter_by(email=login_session['email']).one()
@@ -154,6 +161,9 @@ def getUserID(email):
     except:
         return None
 
+def clearLoginSession(login_session):
+    for key in login_session.keys():
+        del login_session[key]
 
 
 # DISCONNECT - Revoke a current user's token and reset their login_session.
@@ -171,14 +181,7 @@ def gdisconnect():
     result = h.request(revokeTokenUrl, 'GET')[0]
 
     if result['status'] == '200':
-        # Reset the user's session
-        del login_session['access_token']
-        del login_session['gplus_id']
-        del login_session['username']
-        del login_session['email']
-        del login_session['picture']
-        del login_session['user_id']
-
+        clearLoginSession(login_session)
         response = make_response(
             json.dumps('Successfully disconnected.'), 200)
         response.headers['Content-Type'] = 'application/json'
