@@ -49,6 +49,20 @@ h1, h2, h3, h4 {
     opacity: 0.5;
 }
 
+
+/* Flash Messages */
+.flash-messages {
+  background-color: rgb(249, 219, 219);
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.flash-messages ul {
+  list-style-type: none;
+  margin: 0;
+}
+
+
 /* Login section of header*/
 .login-status {
   display: flex;
