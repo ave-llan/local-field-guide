@@ -231,7 +231,8 @@ def createPlace():
     if request.method == 'POST':
         newPlace = Place(name = request.form['name'],
                     longitude = request.form['longitude'],
-                    latitude = request.form['latitude'])
+                    latitude = request.form['latitude'],
+                    user_id = getUserID(login_session['email']))
         session.add(newPlace)
         session.commit()
         flash("'" + request.form['name'] + "' Field Guide created")
