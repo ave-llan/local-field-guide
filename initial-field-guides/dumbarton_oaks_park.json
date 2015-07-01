@@ -1,14 +1,9 @@
 {
-  "author": "Juan Avellanas",
+  "author": "John Leszczynski",
   "latitude": 38.91679,
   "longitude": -77.064373,
   "name": "Dumbarton Oaks Park",
   "species": [
-    {
-      "common_name": "Chimney Swift",
-      "scientific_name": "Chaetura pelagica",
-      "tip": "high in the air"
-    },
     {
       "common_name": "Northern Cardinal",
       "scientific_name": "Cardinalis cardinalis",
@@ -32,7 +27,7 @@
     {
       "common_name": "Raccoon",
       "scientific_name": "Procyon lotor",
-      "tip": "Secretive and Sneaky"
+      "tip": "Common but rarely seen."
     },
     {
       "common_name": "Eastern gray squirrel",

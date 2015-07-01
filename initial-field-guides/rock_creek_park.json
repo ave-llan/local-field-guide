@@ -1,0 +1,28 @@
+{
+  "author": "John Leszczynski",
+  "latitude": 38.959659,
+  "longitude": -77.051601,
+  "name": "Rock Creek Park -- Nature Center",
+  "species": [
+    {
+      "common_name": "Black Rat Snake",
+      "scientific_name": "Elaphe obsoleta",
+      "tip": "Large rat snakes can sometimes be seen sunning themselves on the trails."
+    },
+    {
+      "common_name": "Red-bellied woodpecker",
+      "scientific_name": "Melanerpes carolinus",
+      "tip": "Quite common -- listen for the distinctive 'churrr' call and drumming."
+    },
+    {
+      "common_name": "Coyote",
+      "scientific_name": "Canis latrans",
+      "tip": "Present but rarely seen.  At night you can sometimes hear the coyotes howling."
+    },
+    {
+      "common_name": "Northern Water Snake",
+      "scientific_name": "Nerodia sipedon",
+      "tip": "Frequently seen on large sunny rocks on the shore of Rock Creek. Will jump into the water and swim away if frightened."
+    }
+  ]
+}
