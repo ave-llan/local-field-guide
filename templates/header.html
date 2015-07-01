@@ -1,3 +1,24 @@
 <div class="header">
-    <h1><a href="{{url_for('homePage') }}">Local Field Guide</a></h1>
+
+    <div class="header-title">
+        <h1><a href="{{url_for('homePage') }}">Local Field Guide</a></h1>
+    </div>
+
+    <div class="login-status">
+        {% if 'username' not in login_session %}
+            <p>
+                <a href="{{ url_for('showLogin') }}">
+                    Sign in
+                </a>
+            </p>
+        {% else %}
+            <p>
+                <a href="{{ url_for('gdisconnect') }}">
+                    Sign out
+                </a>
+            </p>
+        {% endif %}
+
+    </div>
+
 </div>

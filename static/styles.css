@@ -27,6 +27,11 @@ h1, h2, h3, h4 {
 
 
 /* header */
+.header {
+  display: flex;
+  justify-content: space-between;
+}
+
 .header-title {
   font-weight: bold;
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
