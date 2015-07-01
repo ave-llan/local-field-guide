@@ -4,6 +4,12 @@
   "name": "Rialto Beach",
   "species": [
     {
+      "common_name": "Raccoon",
+      "scientific_name": "Procyon lotor",
+      "tip": "Sometimes visits the beach to eat from tidepools. ",
+      "type": "mammal"
+    },
+    {
       "common_name": "Bald Eagle",
       "scientific_name": "Haliaeetus leucocephalus",
       "tip": "Soaring over the beach or perched high in the sea stacks.",
@@ -26,6 +32,60 @@
       "scientific_name": "Strongylocentrotus purpuratus",
       "tip": "Common in tide pools.",
       "type": "fish"
+    },
+    {
+      "common_name": "Graceful Kelp Crab",
+      "scientific_name": "Pugettia gracilis",
+      "tip": "Found scurrying through kelp around tidepools.",
+      "type": "insect"
+    },
+    {
+      "common_name": "Tidepool sculpin",
+      "scientific_name": "Oligocottus maculosus",
+      "tip": "Found hiding in tidepools.",
+      "type": "fish"
+    },
+    {
+      "common_name": "Giant Green Anemone",
+      "scientific_name": "Anthopleura xanthogrammica",
+      "tip": "Common in tidepools ",
+      "type": "fish"
+    },
+    {
+      "common_name": "Pacific Blue Mussel",
+      "scientific_name": "Mytilus edulis",
+      "tip": "Enormous beds of blue mussels (thousands and thousands) are revealed at low tide.",
+      "type": "fish"
+    },
+    {
+      "common_name": "Pacific blood star",
+      "scientific_name": "Henricia leviuscula",
+      "tip": "Brilliant red starfish can be seen clinging to rocks in the surf. ",
+      "type": "fish"
+    },
+    {
+      "common_name": "Giant Pacific Octopus",
+      "scientific_name": "Enteroctopus dofleini",
+      "tip": "Occasionally found in tidepools. ",
+      "type": "fish"
+    },
+    {
+      "common_name": "Song sparrow",
+      "scientific_name": "Melospiza melodia",
+      "tip": "Listen for the song coming from the trees near the beach.",
+      "type": "bird"
+    },
+    {
+      "common_name": "Opalescent Nudibranch",
+      "scientific_name": "Hermissenda crassicornis",
+      "tip": "Uncommon sea slug sometimes found in tidepools.",
+      "type": "fish"
+    },
+    {
+      "common_name": "Graceful Decorator Crab",
+      "scientific_name": "Oregonia gracilis",
+      "tip": "Can be found in tidepools, but easy to miss due to camouflage.",
+      "type": "insect"
     }
   ]
 }
