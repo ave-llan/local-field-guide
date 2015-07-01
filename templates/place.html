@@ -7,12 +7,15 @@
     <h2 id="placeName">{{place.name}}</h2>
 
     {% include "flashmessages.html" %}
-  
-    <p>
-        <a href="{{url_for('addSpeciesToPlace', place_id = place.id) }}">
-            Add a species found here
-        </a>
-    </p>
+
+    {% if login_session['email'] == place.user.email %}
+        <p>
+            <a href="{{url_for('addSpeciesToPlace', place_id = place.id) }}">
+                Add a species found here
+            </a>
+        </p>
+    {% endif %}    
+
     <div class="cardDisplay">
 
         {% for occurrence in occurrences %}
