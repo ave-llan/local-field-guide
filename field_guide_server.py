@@ -122,6 +122,31 @@ def gconnect():
     return output
 
 
+# User Helper Functions
+
+def createUser(login_session):
+    newUser = User(name=login_session['username'], email=login_session[
+                   'email'], picture=login_session['picture'])
+    session.add(newUser)
+    session.commit()
+    user = session.query(User).filter_by(email=login_session['email']).one()
+    return user.id
+
+
+def getUserInfo(user_id):
+    user = session.query(User).filter_by(id=user_id).one()
+    return user
+
+
+def getUserID(email):
+    try:
+        user = session.query(User).filter_by(email=email).one()
+        return user.id
+    except:
+        return None
+
+
+
 # DISCONNECT - Revoke a current user's token and reset their login_session.
 @app.route('/gdisconnect')
 def gdisconnect():
@@ -284,6 +309,10 @@ def placeFieldGuideJSON(place_id):
         longitude=place.longitude,
         latitude=place.latitude,
         species=[species.serialize for species in occurrences])
+
+
+def createUser(login_session)
+
 
 
 if __name__ == '__main__':
