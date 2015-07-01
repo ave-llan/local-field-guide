@@ -262,6 +262,11 @@ def addSpeciesToPlace(place_id):
     if 'username' not in login_session:
         flash("Please login to add a species to this Field Guide.")
         return redirect('/login')
+    # check that this is the owner, if not, redirect
+    place = session.query(Place).filter_by(id=place_id).one() 
+    if getUserID(login_session['email']) != place.user_id:
+        flash("You are not authorized to edit this field guide!")
+        return redirect(url_for('placeFieldGuide', place_id=place_id))
     if request.method == 'POST':
         sp = session.query(Species).filter_by(common_name=request.form['species']).one()
         newSpeciesOccurrence = SpeciesOccurrence(place_id = place_id,
@@ -285,6 +290,11 @@ def editSpeciesOccurrence(place_id, species_id):
     if 'username' not in login_session:
         flash("Please login to edit the tips in this Field Guide.")
         return redirect('/login')
+    # check that this is the owner, if not, redirect
+    place = session.query(Place).filter_by(id=place_id).one() 
+    if getUserID(login_session['email']) != place.user_id:
+        flash("You are not authorized to edit this field guide!")
+        return redirect(url_for('placeFieldGuide', place_id=place_id))
     if request.method == 'POST':
         occurrence = session.query(SpeciesOccurrence).filter_by(place_id=place_id, species_id=species_id).one()
         if request.form['tip']:
@@ -305,6 +315,11 @@ def removeOccurrence(place_id, species_id):
     if 'username' not in login_session:
         flash("Please login to remove a species from this Field Guide.")
         return redirect('/login')
+    # check that this is the owner, if not, redirect
+    place = session.query(Place).filter_by(id=place_id).one() 
+    if getUserID(login_session['email']) != place.user_id:
+        flash("You are not authorized to edit this field guide!")
+        return redirect(url_for('placeFieldGuide', place_id=place_id))
     if request.method == 'POST':
         occurrence = session.query(SpeciesOccurrence).filter_by(place_id=place_id, species_id=species_id).one()
         session.delete(occurrence)
