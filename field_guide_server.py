@@ -320,10 +320,6 @@ def placeFieldGuideJSON(place_id):
         species=[species.serialize for species in occurrences])
 
 
-def createUser(login_session)
-
-
-
 if __name__ == '__main__':
     app.secret_key = 'super_secret_key'
     app.debug = True
