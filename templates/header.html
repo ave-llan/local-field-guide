@@ -12,6 +12,11 @@
                 </a>
             </p>
         {% else %}
+            <div>
+                <p>
+                    {{ login_session['given_name'] }}
+                </p>
+            </div>
             {% if login_session['picture']%}
                 <div>
                     <img id="header-picture" src="{{login_session['picture']}}">
@@ -19,7 +24,7 @@
             {% endif %}
             <div>
                 <p>
-                    Signed in as {{ login_session['username'] }} | 
+                    | 
                     <a href="{{ url_for('gdisconnect') }}">
                         Sign out
                     </a>
