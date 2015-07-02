@@ -312,10 +312,8 @@ def homePage():
             desc(SpeciesOccurrence.species_id)).all()[:numThumbnails]
         for i in range(len(speciesAtPlace[place.id])):
             species = speciesAtPlace[place.id][i].species
-            # change photo ending from .jpg to _q.jpg
             # this requests a smaller (150x150) version of the photo from Flickr
-            # See: https://www.flickr.com/services/api/misc.urls.html
-            photoUrl = species.photo[:-4] + '_q.jpg'
+            photoUrl = flickr.addSizeSuffix(species.photo, 'q')
             speciesAtPlace[place.id][i] = {
                     'common_name': species.common_name,
                     'photo': photoUrl}
