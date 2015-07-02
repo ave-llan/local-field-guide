@@ -1,5 +1,7 @@
+// Select all divs which need a photo added on the main page
 var $allSpecies = $('.species-thumbnail-preview');
 
+// for each div, lookup the scientific name and find a photo from Flickr
 $allSpecies.each(function() {
     var species = $(this);
     var sciName = $(this).attr("scientific-name");
@@ -22,6 +24,5 @@ $allSpecies.each(function() {
                             photo.owner + '/' + photo.id;
             species.prepend('<img src="' + photoUrl + '">');
         }
-    })
-
-})
+    });
+});

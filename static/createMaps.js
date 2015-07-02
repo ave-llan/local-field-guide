@@ -1,3 +1,5 @@
+// Adds maps to each Field Guide preview on main page
+
 L.mapbox.accessToken = 'pk.eyJ1IjoiZGlzdHJpY3RpbnJvYWRzIiwiYSI6Ik5pX2NMd2MifQ.VAzyiIlIyhmMduGNEUeGHw';
 
 // select all the maps
@@ -14,4 +16,4 @@ $maps.each(function(index) {
             attributionControl: false
         });
     map.setView([lat, lng], 14)
-})
+});

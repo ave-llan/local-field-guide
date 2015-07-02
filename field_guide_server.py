@@ -35,7 +35,7 @@ def showLogin():
     login_session['state'] = state
     return render_template('login.html', STATE=state)
 
-
+# Try to log a user in using Google
 @app.route('/gconnect', methods=['POST'])
 def gconnect():
     # check for valid state before proceeding
@@ -111,7 +111,7 @@ def gconnect():
     login_session['email'] = data['email']
     login_session['given_name'] = data['given_name']
     login_session['family_name'] = data['family_name']
-    login_session['provider'] = 'facebook'
+    login_session['provider'] = 'google'
 
 
     # check if user exists, if not make a new User
@@ -195,8 +195,6 @@ def fbconnect():
 
 # User Helper Functions
 
-
-
 def createUser(login_session):
     newUser = User(name=login_session['username'], email=login_session['email'], 
             picture=login_session['picture'], given_name=login_session['given_name'],
@@ -220,6 +218,7 @@ def getUserID(email):
         return None
 
 
+# login/logout helper functions
 def clearLoginSession(login_session):
     for key in login_session.keys():
         del login_session[key]
@@ -233,7 +232,7 @@ def verifyState(state):
         return response
 
 
-# DISCONNECT - Revoke a current user's token and reset their login_session.
+# Revokes a current Google user's token and resets their login_session.
 @app.route('/gdisconnect')
 def gdisconnect():
     # only disconnect a connected user
@@ -262,6 +261,7 @@ def gdisconnect():
         return response
 
 
+# Revokes a current Facebook user's token and resets their login_session.
 @app.route('/fbdisconnect')
 def fbdisconnect():
     facebook_id = login_session['facebook_id']
@@ -314,6 +314,7 @@ def homePage():
                         speciesAtPlace = speciesAtPlace, login_session = login_session)
 
 
+# Page for individual field guides
 @app.route('/place/<int:place_id>/')
 def placeFieldGuide(place_id):
     place = session.query(Place).filter_by(id=place_id).one()
@@ -345,6 +346,8 @@ def createPlace():
         return render_template('newplace.html', login_session = login_session)
 
 
+# Page to add a species to the database
+# TODO make this automatic based on species name
 @app.route('/addspecies', methods=['GET', 'POST'])
 def addSpecies():
     if 'username' not in login_session:
@@ -361,6 +364,7 @@ def addSpecies():
         return render_template('addspecies.html', login_session = login_session)
 
 
+# Adds a species to a specific Field Guide
 @app.route('/place/<int:place_id>/addspeciestoplace/', methods=['GET', 'POST'])
 def addSpeciesToPlace(place_id):
     if 'username' not in login_session:
@@ -389,6 +393,7 @@ def addSpeciesToPlace(place_id):
                         login_session = login_session)
 
 
+# Edit the tip about a species in a specific Field Guide
 @app.route('/place/<int:place_id>/<int:species_id>/editoccurrence', methods=['GET', 'POST'])
 def editSpeciesOccurrence(place_id, species_id):
     if 'username' not in login_session:
@@ -414,6 +419,7 @@ def editSpeciesOccurrence(place_id, species_id):
                         login_session = login_session)
 
 
+# Remove a species from a Field Guide
 @app.route('/place/<int:place_id>/<int:species_id>/removeoccurrence', methods=['GET', 'POST'])
 def removeOccurrence(place_id, species_id):
     if 'username' not in login_session:
@@ -437,7 +443,7 @@ def removeOccurrence(place_id, species_id):
                         login_session = login_session)
 
 
-# API Endpoint
+# API JSON Endpoint
 @app.route('/place/<int:place_id>/JSON')
 def placeFieldGuideJSON(place_id):
     place = session.query(Place).filter_by(id=place_id).one()

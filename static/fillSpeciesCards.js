@@ -1,3 +1,6 @@
+// For a specific field guide, fill each species card with photo from Flickr
+// and a Wikipedia description
+
 
 var $cards = $('.speciesCard');
 $cards.each(function() {
@@ -15,7 +18,7 @@ $cards.each(function() {
         dataType: 'jsonp',
         success: function(data) {
             var key = Object.keys(data.query.pages)[0];
-            // if key is -1, no article was found on wikipedia
+            // if key is -1, no article was found on wikipedia so do not add anything
             if (key != -1) {
                 var url = 'http://en.wikipedia.org/wiki/' + data.query.pages[key].title;
                 description.text(
@@ -36,10 +39,12 @@ $cards.each(function() {
         dataType: 'json',
         success: function(data) {
             var photo = data.photos.photo[0];
+            // url to the actual photo
             var photoUrl = 'https://farm' + photo.farm + 
                            '.staticflickr.com/' + photo.server +
                            '/' + photo.id + '_' + photo.secret +
                            '_z.jpg';
+            // url to the photo on Flickr
             var photoPage = 'https://www.flickr.com/photos/' +
                             photo.owner + '/' + photo.id;
             card.prepend(

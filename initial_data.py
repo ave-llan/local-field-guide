@@ -13,7 +13,7 @@ session = DBSession()
 
 
 
-# takes a json file, creates a place and adds species
+# takes a json file name, creates a place and adds species
 def fieldGuideFromJSON(filename, owner):
     # read file
     with open(filename) as guide_file:
@@ -57,6 +57,7 @@ juan = User(
     family_name="Leszczynski")
 session.add(juan)
 session.commit()
+
 
 # add all files in initial-field-guides directory to database
 for fgJSON in listdir('initial-field-guides'):

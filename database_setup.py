@@ -42,7 +42,7 @@ class SpeciesOccurrence(Base):
 
     place_id = Column(Integer, ForeignKey('place.id'), primary_key=True)
     species_id = Column(Integer, ForeignKey('species.id'), primary_key=True)
-    # add a tip about how to find this species at this place
+    # a tip about how to find this species at this place (where to look, what to look for)
     tip = Column(String(250))
 
     place = relationship("Place", backref=backref('species'))
