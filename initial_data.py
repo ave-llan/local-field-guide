@@ -29,13 +29,15 @@ def fieldGuideFromJSON(filename, owner):
     session.add(fieldguide)
     session.commit()
 
+    print 'Searching Flickr and Wikipedia for...'
+
     for s in guide_data['species']:
         # try to get species from database (it might not be there yet)
         sp = session.query(Species).filter_by(
             scientific_name=s['scientific_name']).scalar()
         # if species not in database, first add it
         if sp is None:
-            print 'Searching Flickr and Wikipedia for {0} ({1})...'.format(
+            print '   {0} ({1})'.format(
                 s['scientific_name'],
                 s['common_name'])
 
@@ -45,7 +47,7 @@ def fieldGuideFromJSON(filename, owner):
             # look up description from wikipedia
             description = wikipedia.search(s['scientific_name'])
             wiki_url = wikipedia.articleUrl(s['scientific_name'])
-            
+
             sp = Species(
                 common_name=s['common_name'],
                 scientific_name=s['scientific_name'],
