@@ -357,22 +357,24 @@ def createPlace():
 # TODO make this automatic based on species name
 @app.route('/addspecies', methods=['GET', 'POST'])
 def addSpecies():
-    print 'Now on addSpecies page'
-    print request
-    print request.method
     if 'username' not in login_session:
         flash("Please login to add a new species to the database.")
         return redirect('/login')
     if request.method == 'POST':
-        print 'made it'
-        print request.form['scientificName']
+
         # look up photo on flickr (and select the first item from returned list)
         photo = flickr.search(request.form['scientificName'])[0]
+
+        # look up description from wikipedia
+        description = wikipedia.search(s['scientific_name'])
+        wiki_url = wikipedia.articleUrl(s['scientific_name'])
 
         newSpecies = Species(common_name = request.form['commonName'],
                     scientific_name = request.form['scientificName'],
                     photo = flickr.photoUrl(photo),
-                    photo_page = flickr.photoPageUrl(photo))
+                    photo_page = flickr.photoPageUrl(photo),
+                    wiki_url = wiki_url,
+                    description = description)
         session.add(newSpecies)
         session.commit()
         flash(request.form['commonName'] + " added to species database")

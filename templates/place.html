@@ -50,8 +50,11 @@
             {% endif %}
         </p>
 
-        <!-- Filled with wikipedia AJAX call-->
-        <p id="species-description"></p>
+        {% if occurrence.species.description != None %}
+            <p id="species-description">
+                {{occurrence.species.description}} <a href="{{occurrence.species.wiki_url}}" target="_blank">Wikipedia</a>
+            </p>
+        {% endif %}
 
         {% if login_session['email'] == place.user.email %}
             <p id="remove-control">
@@ -67,9 +70,5 @@
 
 </div>
 
-
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-<script src="{{ url_for('static', filename='fillSpeciesCards.js')}}"></script>
 
 {% endblock content %}

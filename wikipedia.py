@@ -6,7 +6,7 @@ import requests, json
 
 
 def search(search_terms, numSentences=2):
-    """Returns a Wikipedia object, or None if no results 
+    """Returns a description from Wikipedia of the search term, or None if no results 
     """
 
     wikiEndpoint = 'https://en.wikipedia.org/w/api.php'

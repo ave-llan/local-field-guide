@@ -5,7 +5,7 @@ from database_setup import Base, User, Place, Species, SpeciesOccurrence, engine
 import json
 from os import listdir
 
-import flickr
+import flickr, wikipedia
 
 Base.metadata.bind = engine
 
@@ -35,17 +35,24 @@ def fieldGuideFromJSON(filename, owner):
             scientific_name=s['scientific_name']).scalar()
         # if species not in database, first add it
         if sp is None:
-            # look up photo on flickr (and select the first item from returned list)
-            print 'Searching Flickr for photos of {0} ({1})...'.format(
+            print 'Searching Flickr and Wikipedia for {0} ({1})...'.format(
                 s['scientific_name'],
                 s['common_name'])
+
+            # look up photo on flickr (and select the first item from returned list)
             photo = flickr.search(s['scientific_name'])[0]
 
+            # look up description from wikipedia
+            description = wikipedia.search(s['scientific_name'])
+            wiki_url = wikipedia.articleUrl(s['scientific_name'])
+            
             sp = Species(
                 common_name=s['common_name'],
                 scientific_name=s['scientific_name'],
                 photo = flickr.photoUrl(photo),
-                photo_page = flickr.photoPageUrl(photo))
+                photo_page = flickr.photoPageUrl(photo),
+                wiki_url = wiki_url,
+                description = description)
             session.add(sp)
             session.commit()
         # add species to this field guide

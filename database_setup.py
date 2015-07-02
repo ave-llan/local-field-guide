@@ -39,6 +39,10 @@ class Species(Base):
     photo = Column(String(250))
     # url of the photos page on Flickr
     photo_page = Column(String(250))
+    # url for a wikipedia page about this species
+    wiki_url = Column(String(250))
+    # description of this species from Wikipedia
+    description = Column(String(400))
 
 
 class SpeciesOccurrence(Base):
