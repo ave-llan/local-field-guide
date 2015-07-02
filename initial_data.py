@@ -72,3 +72,5 @@ session.commit()
 for fgJSON in listdir('initial-field-guides'):
     filepath = 'initial-field-guides/' + fgJSON
     fieldGuideFromJSON(filepath, juan)
+
+print "success! fieldguide database has been populated"
