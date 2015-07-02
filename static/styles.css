@@ -128,10 +128,12 @@ h1, h2, h3, h4 {
   color: #111111;
   font-size: 2em;
   margin: 0;
+  text-align: center;
 }
 
 #fieldguide-name a {
   text-decoration: none;
+  color: rgb(126, 92, 136)
 }
 
 .field-guide-map {
