@@ -5,6 +5,8 @@
         <title>Local Field Guide</title>
         <link rel="stylesheet" type="text/css" href="{{ url_for('static', 
             filename='styles.css') }}">
+        {% block head %}
+        {% endblock %}
     </head>
     <body>
         <div class="container">
