@@ -32,7 +32,10 @@
 
     <div class="speciesCard">
 
-        <!-- Flick photo will go here after AJAX call -->
+        <figure>
+        <img src="{{ occurrence.species.photo }}">
+        <figcaption><a href="{{ occurrence.species.photo_page }}" target="_blank">Image from Flickr</a></figcaption>
+        </figure>
 
         <p id="common-name">{{occurrence.species.common_name}}</p>
 

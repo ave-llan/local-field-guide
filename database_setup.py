@@ -35,6 +35,10 @@ class Species(Base):
     id = Column(Integer, primary_key=True)
     common_name = Column(String(80), nullable=False)
     scientific_name = Column(String(80), nullable=False)
+    # url of a Flickr photo of the species
+    photo = Column(String(250))
+    # url of the photos page on Flickr
+    photo_page = Column(String(250))
 
 
 class SpeciesOccurrence(Base):

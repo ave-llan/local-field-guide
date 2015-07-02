@@ -16,6 +16,8 @@ import httplib2
 import json
 import requests
 
+#Imports for populating species information from Flickr
+import flickr
 
 CLIENT_ID = json.loads(
     open('client_secrets.json', 'r').read())['web']['client_id']
@@ -354,8 +356,13 @@ def addSpecies():
         flash("Please login to add a new species to the database.")
         return redirect('/login')
     if request.method == 'POST':
+        # look up photo on flickr (and select the first item from returned list)
+        photo = flickr.search(request.form['scientific_name'])[0]
+
         newSpecies = Species(common_name = request.form['commonName'],
-                    scientific_name = request.form['scientificName'])
+                    scientific_name = request.form['scientificName'],
+                    photo = flickr.photoUrl(photo),
+                    photo_page = flickr.photoPageUrl(photo))
         session.add(newSpecies)
         session.commit()
         flash(request.form['commonName'] + " added to species database")

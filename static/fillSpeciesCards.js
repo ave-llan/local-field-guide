@@ -29,30 +29,4 @@ $cards.each(function() {
         }
     });
 
-    var flickrUrl = 'https://api.flickr.com/services/rest/?' +
-                    'method=flickr.photos.search&api_key=6417b277d897c7a6575bd941770bd1e5' +
-                    '&sort=relevance&per_page=1&format=json&nojsoncallback=1' +
-                    '&license=1,2,3,4,5,6,7,8,9,10' +
-                    '&text=' + sciName;
-    $.ajax({
-        url: flickrUrl,
-        dataType: 'json',
-        success: function(data) {
-            var photo = data.photos.photo[0];
-            // url to the actual photo
-            var photoUrl = 'https://farm' + photo.farm + 
-                           '.staticflickr.com/' + photo.server +
-                           '/' + photo.id + '_' + photo.secret +
-                           '_z.jpg';
-            // url to the photo on Flickr
-            var photoPage = 'https://www.flickr.com/photos/' +
-                            photo.owner + '/' + photo.id;
-            card.prepend(
-                '<figure>' +
-                '<img src="' + photoUrl + '">' +
-                '<figcaption><a href="' + photoPage + '" target="_blank">Image from Flickr</a></figcaption>' +
-                '</figure>'
-                );
-        }
-    })
 })
