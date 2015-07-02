@@ -397,7 +397,6 @@ def addSpeciesToPlace(place_id):
         newSpeciesOccurrence = SpeciesOccurrence(place_id = place_id,
                     species_id = sp.id,
                     tip = request.form['tip'])
-        print 'adding', newSpeciesOccurrence
         session.add(newSpeciesOccurrence)
         session.commit()
         place = session.query(Place).filter_by(id=place_id).one()
