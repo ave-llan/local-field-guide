@@ -31,10 +31,9 @@
                 </div>
                 <div class="species-photo-preview">
                     {% for species in speciesAtPlace[place.id] %}
-                        <div class="species-thumbnail-preview" 
-                            scientific-name="{{species.scientific_name}}">
-                            <!-- img placed here by javascript -->
-                            <p id="thumbnail-caption">{{species.common_name}}</p>
+                        <div class="species-thumbnail-preview">
+                            <img src="{{species['photo']}}">
+                            <p id="thumbnail-caption">{{species['common_name']}}</p>
                         </div>
                     {% endfor %}
                 </div>
@@ -51,5 +50,4 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script src="{{ url_for('static', filename='createMaps.js')}}"></script>
-<script src="{{ url_for('static', filename='addSpeciesThumbnails.js')}}"></script>
 {% endblock content %}

@@ -301,7 +301,7 @@ def homePage():
     print login_session.get('username')
     places = session.query(Place).all()
 
-    # build dictionary with last three species added for each place 
+    # build dictionary with photo urls for last six species added for each place 
     # to be used as preview thumbnails
     numThumbnails = 6
     speciesAtPlace = {}
@@ -311,7 +311,14 @@ def homePage():
             place_id = place.id).order_by(
             desc(SpeciesOccurrence.species_id)).all()[:numThumbnails]
         for i in range(len(speciesAtPlace[place.id])):
-            speciesAtPlace[place.id][i] = speciesAtPlace[place.id][i].species
+            species = speciesAtPlace[place.id][i].species
+            # change photo ending from .jpg to _q.jpg
+            # this requests a smaller (150x150) version of the photo from Flickr
+            # See: https://www.flickr.com/services/api/misc.urls.html
+            photoUrl = species.photo[:-4] + '_q.jpg'
+            speciesAtPlace[place.id][i] = {
+                    'common_name': species.common_name,
+                    'photo': photoUrl}
     return render_template('index.html', places = places,
                         speciesAtPlace = speciesAtPlace, login_session = login_session)
 
