@@ -104,10 +104,38 @@ h1, h2, h3, h4 {
     font-size: 3.2em;
 }
 
+
+/* species or field guide card display */
 .cardDisplay {
     display: flex;
     flex-wrap: wrap;
     align-items: flex-start;
+}
+
+
+/* field guide card on index page */
+
+.field-guide-card {
+    width: 400px;
+    margin: 4px;
+    background: #F3E5F5;
+    padding: 4px;
+}
+
+#fieldguide-name {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: bold;
+  color: #111111;
+  font-size: 2em;
+  margin: 0;
+}
+
+#fieldguide-name a {
+  text-decoration: none;
+}
+
+#map {
+  height: 180px;
 }
 
 /* species cards on Field Guide page */
