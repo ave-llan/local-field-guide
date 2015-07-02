@@ -1,5 +1,5 @@
 {
-  "author": "Juan Avellanas",
+  "author": "John Leszczynski",
   "latitude": 47.93548,
   "longitude": -124.646115,
   "name": "Rialto Beach",
@@ -73,6 +73,11 @@
       "common_name": "Graceful Decorator Crab",
       "scientific_name": "Oregonia gracilis",
       "tip": "Can be found in tidepools, but easy to miss due to camouflage."
+    },
+    {
+      "common_name": "Northern Feather Duster Worm",
+      "scientific_name": "Eudistylia vancouveri",
+      "tip": "Look in the tidepools."
     }
   ]
 }
