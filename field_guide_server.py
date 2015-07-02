@@ -16,8 +16,8 @@ import httplib2
 import json
 import requests
 
-#Imports for populating species information from Flickr
-import flickr
+# Imports for populating species information
+import flickr, wikipedia
 
 CLIENT_ID = json.loads(
     open('client_secrets.json', 'r').read())['web']['client_id']
@@ -366,8 +366,8 @@ def addSpecies():
         photo = flickr.search(request.form['scientificName'])[0]
 
         # look up description from wikipedia
-        description = wikipedia.search(s['scientific_name'])
-        wiki_url = wikipedia.articleUrl(s['scientific_name'])
+        description = wikipedia.search(request.form['scientificName'])
+        wiki_url = wikipedia.articleUrl(request.form['scientificName'])
 
         newSpecies = Species(common_name = request.form['commonName'],
                     scientific_name = request.form['scientificName'],
