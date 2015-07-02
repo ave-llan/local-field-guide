@@ -8,6 +8,10 @@ $maps.each(function(index) {
     var mapName = 'map' + String(index);
     var lat = $maps[index].getAttribute("latitude")
     var lng = $maps[index].getAttribute("longitude")
-    var map = L.mapbox.map(mapName, 'districtinroads.mjpi6m96');
+    var map = L.mapbox.map(mapName, 'districtinroads.mjpi6m96', 
+        { 
+            zoomControl: false, 
+            attributionControl: false
+        });
     map.setView([lat, lng], 14)
 })
