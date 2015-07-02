@@ -298,10 +298,20 @@ def homePage():
     print 'logged in as:'
     print login_session.get('username')
     places = session.query(Place).all()
-    # last 10 species added to database
-    latestSpecies = session.query(Species).order_by(desc(Species.id)).all()[:10]
+
+    # build dictionary with last three species added for each place 
+    # to be used as preview thumbnails
+    numThumbnails = 6
+    speciesAtPlace = {}
+    for place in places:
+        speciesAtPlace[place.id] = session.query(
+            SpeciesOccurrence).filter_by(
+            place_id = place.id).order_by(
+            desc(SpeciesOccurrence.species_id)).all()[:numThumbnails]
+        for i in range(len(speciesAtPlace[place.id])):
+            speciesAtPlace[place.id][i] = speciesAtPlace[place.id][i].species
     return render_template('index.html', places = places,
-                        latestSpecies = latestSpecies, login_session = login_session)
+                        speciesAtPlace = speciesAtPlace, login_session = login_session)
 
 
 @app.route('/place/<int:place_id>/')
