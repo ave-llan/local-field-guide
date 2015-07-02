@@ -3,7 +3,6 @@ var $allSpecies = $('.species-thumbnail-preview');
 $allSpecies.each(function() {
     var species = $(this);
     var sciName = $(this).attr("scientific-name");
-    console.log(sciName);
 
     var flickrUrl = 'https://api.flickr.com/services/rest/?' +
                     'method=flickr.photos.search&api_key=6417b277d897c7a6575bd941770bd1e5' +
