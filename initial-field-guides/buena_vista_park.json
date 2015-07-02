@@ -1,0 +1,58 @@
+{
+  "author": "John Leszczynski",
+  "latitude": 37.768568,
+  "longitude": -122.441212,
+  "name": "Buena Vista Park",
+  "species": [
+    {
+      "common_name": "Brown Creeper",
+      "scientific_name": "Certhia americana",
+      "tip": "Frequently creeping up the tree trunks."
+    },
+    {
+      "common_name": "Banana slug",
+      "scientific_name": "Ariolimax",
+      "tip": "Can be found crawling on the ground in shaded parts of the park."
+    },
+    {
+      "common_name": "Coast Live Oak",
+      "scientific_name": "Quercus agrifolia",
+      "tip": "Enter a forest of Coast Live Oaks via the steps off Haight Street across from Lyon Street."
+    },
+    {
+      "common_name": "Coast Redwood",
+      "scientific_name": "Sequoia sempervirens",
+      "tip": "There is a small grove of Redwoods near the top of the park."
+    },
+    {
+      "common_name": "California Slender Salamander",
+      "scientific_name": "Batrachoseps attenuatus",
+      "tip": "Sometimes found in shaded areas of the park."
+    },
+    {
+      "common_name": "Anna's Hummingbird",
+      "scientific_name": "Calypte anna",
+      "tip": "Abundant "
+    },
+    {
+      "common_name": "Allen's Hummingbird",
+      "scientific_name": " Selasphorus sasin",
+      "tip": "Common"
+    },
+    {
+      "common_name": "Red-masked Parakeet",
+      "scientific_name": "Psittacara erythrogenys",
+      "tip": "Non-native Parakeets sometimes pass by here."
+    },
+    {
+      "common_name": "Common Raven",
+      "scientific_name": "Corvus corax",
+      "tip": "Often soaring over the surrounding neighborhoods and easily visible from the park."
+    },
+    {
+      "common_name": "Bushtit",
+      "scientific_name": "Psaltriparus minimus",
+      "tip": "Look in the mid-level tree branches."
+    }
+  ]
+}
