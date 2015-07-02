@@ -5,6 +5,11 @@
   "name": "Rock Creek Park",
   "species": [
     {
+      "common_name": "White-Tailed Deer",
+      "scientific_name": "Odocoileus virginianus",
+      "tip": "Very common throughout the park.  Most are at least somewhat habituated to people and so don't scare easily. "
+    },
+    {
       "common_name": "Black Rat Snake",
       "scientific_name": "Elaphe obsoleta",
       "tip": "Large rat snakes can sometimes be seen sunning themselves on the trails."
@@ -12,7 +17,7 @@
     {
       "common_name": "Red-bellied woodpecker",
       "scientific_name": "Melanerpes carolinus",
-      "tip": "Quite common -- listen for the distinctive 'churrr' call and drumming."
+      "tip": "Quite common\u2014listen for the distinctive 'churrr' call and drumming."
     },
     {
       "common_name": "Coyote",
@@ -23,6 +28,16 @@
       "common_name": "Northern Water Snake",
       "scientific_name": "Nerodia sipedon",
       "tip": "Frequently seen on large sunny rocks on the shore of Rock Creek. Will jump into the water and swim away if frightened."
+    },
+    {
+      "common_name": "Pileated woodpecker",
+      "scientific_name": "Hylatomus pileatus",
+      "tip": "Striking woodpecker that can be seen fairly regularly flashing through the treetops.  Often calls while flying."
+    },
+    {
+      "common_name": "Northern Flicker",
+      "scientific_name": "Colaptes auratus",
+      "tip": "Most often seen on the ground foraging for ants on the border of forests and fields."
     }
   ]
 }
