@@ -303,7 +303,7 @@ def homePage():
 
     # build dictionary with photo urls for last six species added for each place 
     # to be used as preview thumbnails
-    numThumbnails = 6
+    numThumbnails = 9
     speciesAtPlace = {}
     for place in places:
         speciesAtPlace[place.id] = session.query(
@@ -357,12 +357,17 @@ def createPlace():
 # TODO make this automatic based on species name
 @app.route('/addspecies', methods=['GET', 'POST'])
 def addSpecies():
+    print 'Now on addSpecies page'
+    print request
+    print request.method
     if 'username' not in login_session:
         flash("Please login to add a new species to the database.")
         return redirect('/login')
     if request.method == 'POST':
+        print 'made it'
+        print request.form['scientificName']
         # look up photo on flickr (and select the first item from returned list)
-        photo = flickr.search(request.form['scientific_name'])[0]
+        photo = flickr.search(request.form['scientificName'])[0]
 
         newSpecies = Species(common_name = request.form['commonName'],
                     scientific_name = request.form['scientificName'],
@@ -456,7 +461,7 @@ def removeOccurrence(place_id, species_id):
 
 
 # API JSON Endpoint
-@app.route('/place/<int:place_id>/JSON')
+@app.route('/place/<int:place_id>/json')
 def placeFieldGuideJSON(place_id):
     place = session.query(Place).filter_by(id=place_id).one()
     occurrences = session.query(SpeciesOccurrence).\
