@@ -6,9 +6,9 @@ and the url of the Flickr photo page.
 
 import requests, json
 
-# grab the api-key from another file
+# grab the api-key from the secrets file
 flickr_api_key = json.loads(
-    open('api-keys.json', 'r').read())['flickr']
+    open('secrets.json', 'r').read())['flickr']
 
 
 def search(search_terms, numResults=1):
