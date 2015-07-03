@@ -396,6 +396,14 @@ def addSpeciesToPlace(place_id):
         return redirect(url_for('placeFieldGuide', place_id=place_id))
     if request.method == 'POST':
         sp = session.query(Species).filter_by(common_name=request.form['species']).one()
+
+        # first check to see if species is already added to this place
+        occurrence = session.query(SpeciesOccurrence).filter_by(
+            place_id = place_id, species_id = sp.id).scalar()
+        if occurrence is not None:
+            flash(sp.common_name + " is already in this field guide.")
+            return redirect(url_for('placeFieldGuide', place_id=place_id))
+            
         newSpeciesOccurrence = SpeciesOccurrence(place_id = place_id,
                     species_id = sp.id,
                     tip = request.form['tip'])
