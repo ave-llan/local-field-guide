@@ -38,6 +38,16 @@
       "common_name": "Northern Flicker",
       "scientific_name": "Colaptes auratus",
       "tip": "Most often seen on the ground foraging for ants on the border of forests and fields."
+    },
+    {
+      "common_name": "Red-eared Slider",
+      "scientific_name": "Trachemys scripta elegans",
+      "tip": "Can be seen on logs or boulders in the creek."
+    },
+    {
+      "common_name": "House Mouse",
+      "scientific_name": "Mus musculus",
+      "tip": "Frequently the source of rustling leaves, though hard to actually see."
     }
   ]
 }
