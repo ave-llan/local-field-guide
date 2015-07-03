@@ -61,13 +61,8 @@ function signInCallback(authResult) {
             success: function(result) {
                 // Handle or verify the server response if necessary.
                 if (result) {
-                    $('#result').html(
-                        'Login Successful!</br>'+ result + '</br>Redirecting...'
-                    )
-                    // after 4 seconds, redirect to home page
-                    setTimeout(function() {
+                    $('#result').html(result)
                     window.location.href = "/";
-                    }, 4000);
                 } else if (authResult['error']) {
                     console.log('There was an error: ' + authResult['error']);
                 } else {
@@ -75,6 +70,12 @@ function signInCallback(authResult) {
                         'Failed to make a server-side call. Check your configuration and console.'
                     );
                 }
+            },
+            error: function(result) {
+              console.log("Login failed :(");
+              // redirect user back to home page where a flash message 
+              // will notify them that login failed
+              window.location.href = "/";
             }
         }); 
     } 
