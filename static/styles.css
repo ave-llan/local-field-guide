@@ -78,6 +78,13 @@ h1, h2, h3, h4 {
   display: flex;             /* NEW, Spec - Opera 12.1, Firefox 20+ */
 }
 
+
+.user-sign-out p {
+  margin-top: 0;
+  font-size: 0.8em;
+  text-align: right;
+}
+
 #header-picture {
   width: 30px;
   height: 30px;
