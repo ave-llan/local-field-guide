@@ -19,13 +19,20 @@ Python >2.7 and <3.0.
 ### Set up
 
 Clone the repository:
+
 `git clone https://github.com/jrleszcz/swiss-tournament.git`
 
+
+
 Populate the app with field guides in the `initial-field-guides` directory:
+
 `python initial_data.py`
 
+
 Launch the server:
+
 `python field_guide_server.py`
+
 
 Visit `localhost:5000` in the browser to see the site.
 
