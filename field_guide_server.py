@@ -205,6 +205,30 @@ def removeOccurrence(place_id, species_id):
         return render_template('deleteoccurrence.html', occurrence=occurrence,
                         login_session = login_session)
 
+# Delete a Field Gudie
+@app.route('/place/<int:place_id>/delete', methods=['GET', 'POST'])
+def deleteFieldGuide(place_id):
+    if 'username' not in login_session:
+        flash("Please login to remove your Field Guide.")
+        return redirect('/login')
+    # check that this is the owner, if not, redirect
+    place = session.query(Place).filter_by(id=place_id).one() 
+    if getUserID(login_session['email']) != place.user_id:
+        flash("You are not authorized to delete this field guide!")
+        return redirect(url_for('placeFieldGuide', place_id=place_id))
+    if request.method == 'POST':
+        place_name = place.name
+        session.query(SpeciesOccurrence).\
+                    filter_by(place_id = place_id).\
+                    delete(synchronize_session='fetch')
+        session.delete(place)
+        session.commit()
+        flash('{} field guide deleted.'.format(place_name))
+        return redirect(url_for('homePage'))
+    else:
+        return render_template('deletefieldguide.html', place=place,
+                    login_session = login_session)
+
 
 # API JSON Endpoint
 @app.route('/place/<int:place_id>/json')

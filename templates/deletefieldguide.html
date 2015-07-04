@@ -1,0 +1,13 @@
+{% extends "main.html" %}
+{% block content %}
+{% include "header.html" %}
+
+<h2>Are you sure you want to delete the field guide for {{place.name}}?  This cannot be undone.</h2>
+<form action="{{url_for('deleteFieldGuide', place_id=place.id)}}" method="POST">
+
+    <input type='submit' value='Delete'>
+    <a href="{{url_for('placeFieldGuide', place_id=place.id)}}">Cancel</a>
+
+</form>
+
+{% endblock content %}
