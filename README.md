@@ -48,23 +48,27 @@ Let's create a new Field Guide for Shoreline Park at Mountain View and add a few
 
 2. Click 'Create a Field Guide' at the top of the main page and input the following:
 
-Name: Shoreline Park
-Longitude: -122.086549
-Latitude: 37.434430
+Name: `Shoreline Park`
+
+Longitude: `-122.086549`
+
+Latitude: `37.434430`
 
 
 3. Add Some Species. If the species is already in another field guide, you can just select it from the drop down list.
 
-From the species list, select 'Black-crowned Night-Heron'
-As a tip: "Look in the trees near the water."
+
+From the species list, select `Black-crowned Night-Heron`
+
+As a tip: `Look in the trees near the water.`
 
 
 4. Add a Species to the database if it is not already in another field guide.
 
 Select 'Add a new species'
 
-Species Common Name: American White Pelican
-Scientific name: Pelecanus erythrorhynchos
+Species Common Name: `American White Pelican`
+Scientific name: `Pelecanus erythrorhynchos`
 
 Then, add the species to the field guide as in step 3. 
 
