@@ -76,6 +76,14 @@ Scientific name: `Pelecanus erythrorhynchos`
 
 Then, add the species to the field guide as in step 3. 
 
+
+### API
+
+On any field guide page, add `/json` to the url for an api endpoint which will return a json.
+
+For example: `http://localhost:5000/place/2/json`
+
+
 ### Thanks to
 
 Species Photos: [Flickr](https://www.flickr.com/)
