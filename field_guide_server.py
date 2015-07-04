@@ -426,6 +426,7 @@ def disconnect():
         flash("You were not logged in")
     return redirect(url_for('homePage'))
 
+
 #############################
 ### User Helper Functions ###
 #############################
@@ -474,8 +475,6 @@ def loginErrorResponse(message, status_code,
     response = make_response(json.dumps(message), status_code)
     response.headers['Content-Type'] = 'application/json'
     return response
-
-
 
 
 if __name__ == '__main__':
