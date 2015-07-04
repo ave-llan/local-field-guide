@@ -23,6 +23,12 @@
         <a href="{{url_for('addSpeciesToPlace', place_id = place.id) }}">
             Add a species found here
         </a>
+        | <a href="{{url_for('deleteFieldGuide', place_id = place.id) }}">
+            Delete field guide
+        </a>
+    </p>
+    <p>
+
     </p>
 {% endif %}    
 
