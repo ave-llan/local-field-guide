@@ -24,7 +24,7 @@ Clone the repository:
 
 
 
-Populate the app with field guides in the `initial-field-guides` directory:
+Populate the app with field guides in the `initial-field-guides` directory. This may take a minute as the program looks up descriptions from Wikipedia and photos from Flickr. 
 
 `python initial_data.py`
 
