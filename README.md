@@ -41,3 +41,13 @@ Visit `localhost:5000` in the browser to see the site.
 ### Usage
 
 Log in with Google or Facebook to create a field guide and edit field guides that you own. 
+
+
+### Thanks to
+
+Species Photos: [Flickr](https://www.flickr.com/)
+
+Species Descriptions: [Wikipedia](https://www.wikipedia.org/)
+
+Maps: [Mapbox](https://www.mapbox.com/about/maps/) and [OpenStreetMap](http://www.openstreetmap.org)
+
