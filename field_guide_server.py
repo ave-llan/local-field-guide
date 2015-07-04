@@ -194,6 +194,10 @@ def removeOccurrence(place_id, species_id):
         flash("You are not authorized to edit this field guide!")
         return redirect(url_for('placeFieldGuide', place_id=place_id))
     if request.method == 'POST':
+        # validate state to protect against cross-site request forgeries
+        if login_session['state'] != request.form['state']:
+            flash("State could not be validated, please try again.")
+            return redirect(url_for('placeFieldGuide', place_id=place_id))
         occurrence = session.query(SpeciesOccurrence).filter_by(place_id=place_id, species_id=species_id).one()
         session.delete(occurrence)
         session.commit()
@@ -201,8 +205,10 @@ def removeOccurrence(place_id, species_id):
         return redirect(url_for('placeFieldGuide', place_id=place_id))
 
     else:
+        state = ''.join(random.choice(string.ascii_uppercase + string.digits) for x in xrange(32))
+        login_session['state'] = state
         occurrence = session.query(SpeciesOccurrence).filter_by(place_id=place_id, species_id=species_id).one()
-        return render_template('deleteoccurrence.html', occurrence=occurrence,
+        return render_template('deleteoccurrence.html', occurrence=occurrence, STATE=state,
                         login_session = login_session)
 
 # Delete a Field Gudie
@@ -217,6 +223,10 @@ def deleteFieldGuide(place_id):
         flash("You are not authorized to delete this field guide!")
         return redirect(url_for('placeFieldGuide', place_id=place_id))
     if request.method == 'POST':
+        # validate state to protect against cross-site request forgeries
+        if login_session['state'] != request.form['state']:
+            flash("State could not be validated, please try again.")
+            return redirect(url_for('placeFieldGuide', place_id=place_id))
         place_name = place.name
         session.query(SpeciesOccurrence).\
                     filter_by(place_id = place_id).\
@@ -226,7 +236,9 @@ def deleteFieldGuide(place_id):
         flash('{} field guide deleted.'.format(place_name))
         return redirect(url_for('homePage'))
     else:
-        return render_template('deletefieldguide.html', place=place,
+        state = ''.join(random.choice(string.ascii_uppercase + string.digits) for x in xrange(32))
+        login_session['state'] = state
+        return render_template('deletefieldguide.html', place=place, STATE = state,
                     login_session = login_session)
 
 

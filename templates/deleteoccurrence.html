@@ -10,7 +10,7 @@
 
     <h2>Are you sure you want to remove {{occurrence.species.common_name}} from the field guide for  {{occurrence.place.name}}?</h2>
     <form action="{{url_for('removeOccurrence', place_id=occurrence.place_id, species_id=occurrence.species_id)}}" method="POST">
-
+        <input type='hidden' name='state' value="{{STATE}}"> 
         <input type='submit' value='Remove'>
         <a href="{{url_for('placeFieldGuide', place_id=occurrence.place_id)}}">Cancel</a>
 
