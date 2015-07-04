@@ -70,7 +70,7 @@ def fieldGuideFromJSON(filename, owner):
 juan = User(
     name="John Leszczynski",
     email="jrleszczynski@gmail.com",
-    picture="http://c2.staticflickr.com/4/3909/15252090882_19df37d630_n.jpg",
+    picture="https://lh3.googleusercontent.com/-zNX5AZdffwk/AAAAAAAAAAI/AAAAAAAACoQ/dmsDQGk34DI/photo.jpg",
     given_name="John",
     family_name="Leszczynski")
 session.add(juan)
