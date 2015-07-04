@@ -8,12 +8,13 @@ Python >2.7 and <3.0.
 
 [SQLAlchemy](http://www.sqlalchemy.org/)
 
+[Flask](http://flask.pocoo.org/)
+
 [jQuery](https://jquery.com/)
 
 [oathu2client](https://pypi.python.org/pypi/oauth2client)
 
 
-...
 
 
 ### Set up
@@ -21,7 +22,6 @@ Python >2.7 and <3.0.
 Clone the repository:
 
 `git clone https://github.com/jrleszcz/swiss-tournament.git`
-
 
 
 Populate the app with field guides in the `initial-field-guides` directory. This may take a minute as the program looks up descriptions from Wikipedia and photos from Flickr. 
@@ -37,6 +37,7 @@ Launch the server:
 Visit `localhost:5000` in the browser to see the site.
 
 
+
 ### Usage
 
-...
+Log in with Google or Facebook to create a field guide and edit field guides that you own. 
