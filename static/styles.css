@@ -164,19 +164,72 @@ h1, h2, h3, h4 {
     padding: 4px;
 }
 
-#fieldguide-name {
+.card-header {
+    display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+    display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+    display: -ms-flexbox;      /* TWEENER - IE 10 */
+    display: -webkit-flex;     /* NEW - Chrome */
+    display: flex;             /* NEW, Spec - Opera 12.1, Firefox 20+ */
+
+    -webkit-justify-content: space-between; /* Safari 6.1+ */
+    justify-content: space-between;
+
+}
+
+.fieldguide-name {
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-weight: bold;
   color: #111111;
-  font-size: 2em;
+  font-size: 1.6em;
   margin: 0;
   text-align: center;
 }
 
-#fieldguide-name a {
+.fieldguide-name a {
   text-decoration: none;
   color: rgb(126, 92, 136)
 }
+
+.card-author {
+    display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+    display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+    display: -ms-flexbox;      /* TWEENER - IE 10 */
+    display: -webkit-flex;     /* NEW - Chrome */
+    display: flex;             /* NEW, Spec - Opera 12.1, Firefox 20+ */
+}
+
+.card-author-name {
+  display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+  display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+  display: -ms-flexbox;      /* TWEENER - IE 10 */
+  display: -webkit-flex;     /* NEW - Chrome */
+  display: flex;             /* NEW, Spec - Opera 12.1, Firefox 20+ */
+
+  -webkit-flex-direction: column; /* Safari 6.1+ */
+  flex-direction: column; 
+
+  -webkit-justify-content: center; /* Safari 6.1+ */
+  justify-content: center;
+}
+
+.card-author-name p {
+  margin-top: 0;
+  font-size: 0.6em;
+  text-align: right;
+}
+
+.card-author-picture {
+  width: 30px;
+  height: 30px;
+  border-radius: 15px;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  margin-right: 5px;
+  margin-left: 5px;
+}
+
+
+
 
 .field-guide-map {
   height: 180px;

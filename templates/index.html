@@ -19,11 +19,26 @@
 
         {% for place in places %}
             <div class="field-guide-card">
-                <p id="fieldguide-name">
-                    <a href="{{ url_for('placeFieldGuide', place_id=place.id) }}">
-                        {{place.name}}
-                    </a>
-                </p>
+                <div class="card-header">
+                    <p class="fieldguide-name">
+                        <a href="{{ url_for('placeFieldGuide', place_id=place.id) }}">
+                            {{place.name}}
+                        </a>
+                    </p>
+                    <div class="card-author">
+                        <div class="card-author-name">
+                            <p>
+                                <i>a field guide by</i>
+                            </p>
+                            <p>
+                                {{ place.user.name }}
+                            </p>
+                        </div>
+                        <div>
+                            <img class="card-author-picture" src="{{place.user.picture}}">
+                        </div>
+                    </div>
+                </div>
                 <div class="field-guide-map"
                     id="map{{loop.index0}}"
                     latitude="{{place.latitude}}"
