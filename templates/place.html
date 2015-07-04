@@ -47,14 +47,22 @@
 
         <p id="scientific-name">{{occurrence.species.scientific_name}}</p>
 
-        <p>{{occurrence.tip}} <span class="tip-attribution">―{{authorInitials}}</span>
-            {% if login_session['email'] == place.user.email %}
-                <span class="card-control">
-                    [<a href="{{url_for('editSpeciesOccurrence', 
-                    place_id=place.id, species_id=occurrence.species.id)}}">Edit</a>]
-                </span>
-            {% endif %}
-        </p>
+        {% if occurrence.tip %}
+            <p>{{occurrence.tip}} <span class="tip-attribution">―{{authorInitials}}</span>
+                {% if login_session['email'] == place.user.email %}
+                    <span class="card-control">
+                        [<a href="{{url_for('editSpeciesOccurrence', 
+                        place_id=place.id, species_id=occurrence.species.id)}}">Edit</a>]
+                    </span>
+                {% endif %}
+            </p>
+        {% elif login_session['email'] == place.user.email %}
+            <span class="card-control">
+                <br>[<a href="{{url_for('editSpeciesOccurrence', 
+                place_id=place.id, species_id=occurrence.species.id)}}">Add a tip</a>]
+            </span>       
+        {% endif %}
+
 
         {% if occurrence.species.description != None %}
             <p id="species-description">
