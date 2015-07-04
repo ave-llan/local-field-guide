@@ -53,6 +53,11 @@
       "common_name": "House Mouse",
       "scientific_name": "Mus musculus",
       "tip": "Frequently the source of rustling leaves, though hard to actually see."
+    },
+    {
+      "common_name": "Black-crowned Night-Heron",
+      "scientific_name": "Nycticorax nycticorax",
+      "tip": "Quite common near the creak just south of the zoo.  There is a large colony of wild Night-Herons in the zoo located (ironically) above the aviary. "
     }
   ]
 }
