@@ -44,11 +44,11 @@ Let's create a new Field Guide for Shoreline Park at Mountain View and add a few
 
 
 
-###### Log in with Google or Facebook.
+- Log in with Google or Facebook.
 
 
 
-###### Click 'Create a Field Guide' at the top of the main page and input the following:
+- Click 'Create a Field Guide' at the top of the main page and input the following:
 
 Name: `Shoreline Park`
 
@@ -58,7 +58,7 @@ Latitude: `37.434430`
 
 
 
-###### Add Some Species. If the species is already in another field guide, you can just select it from the drop down list.
+- Add Some Species. If the species is already in another field guide, you can just select it from the drop down list.
 
 
 From the species list, select `Black-crowned Night-Heron`
@@ -67,7 +67,7 @@ As a tip: `Look in the trees near the water.`
 
 
 
-###### Add a Species to the database if it is not already in another field guide.
+- Add a Species to the database if it is not already in another field guide.
 
 Select 'Add a new species'
 
