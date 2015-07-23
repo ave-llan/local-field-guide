@@ -6,6 +6,8 @@ Create and view little field guides. When given a species name, the app automati
 
 Python >2.7 and <3.0.
 
+[PostgreSQL](www.postgresql.org)
+
 [SQLAlchemy](http://www.sqlalchemy.org/)
 
 [Flask](http://flask.pocoo.org/)
