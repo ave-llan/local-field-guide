@@ -42,7 +42,7 @@ class Species(Base):
     # url for a wikipedia page about this species
     wiki_url = Column(String(250))
     # description of this species from Wikipedia
-    description = Column(String(400))
+    description = Column(String(800))
 
 
 class SpeciesOccurrence(Base):
@@ -68,7 +68,7 @@ class SpeciesOccurrence(Base):
 
 
 
-engine = create_engine('sqlite:///fieldguide.db')
+engine = create_engine('postgresql://fieldguide:barnswallow@localhost/fieldguidedb')
 
 
 Base.metadata.create_all(engine)
