@@ -4,7 +4,7 @@ app = Flask(__name__)
 ## import CRUD Operations ##
 from sqlalchemy import create_engine, desc
 from sqlalchemy.orm import sessionmaker
-from database_setup import Base, User, Place, Species, SpeciesOccurrence
+from database_setup import Base, UserProfile, Place, Species, SpeciesOccurrence
 
 # Imports for oAuth
 from flask import session as login_session
@@ -468,17 +468,17 @@ def disconnect():
 #############################
 
 def createUser(login_session):
-    newUser = User(name=login_session['username'], email=login_session['email'], 
+    newUser = UserProfile(name=login_session['username'], email=login_session['email'], 
             picture=login_session['picture'], given_name=login_session['given_name'],
             family_name=login_session['family_name'])
     session.add(newUser)
     session.commit()
-    user = session.query(User).filter_by(email=login_session['email']).one()
+    user = session.query(UserProfile).filter_by(email=login_session['email']).one()
     return user.id
 
 def getUserID(email):
     try:
-        user = session.query(User).filter_by(email=email).one()
+        user = session.query(UserProfile).filter_by(email=email).one()
         return user.id
     except:
         return None

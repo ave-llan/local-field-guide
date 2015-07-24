@@ -7,7 +7,7 @@ from sqlalchemy import create_engine
 Base = declarative_base()
 
 
-class User(Base):
+class UserProfile(Base):
     __tablename__ = 'user'
 
     id = Column(Integer, primary_key=True)
@@ -26,7 +26,7 @@ class Place(Base):
     longitude = Column(Float, nullable=False)
     latitude = Column(Float, nullable=False)
     user_id = Column(Integer, ForeignKey('user.id'))
-    user = relationship("User")
+    user = relationship("UserProfile")
 
 
 class Species(Base):
