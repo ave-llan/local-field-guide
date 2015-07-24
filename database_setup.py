@@ -68,7 +68,9 @@ class SpeciesOccurrence(Base):
 
 
 
-engine = create_engine('postgresql://fieldguide:barnswallow@localhost/fieldguidedb')
+engine = create_engine("postgresql+psycopg2://fieldguide:thisisatest@localhost/fieldguidedb")
+#engine = create_engine('postgresql://localhost/fieldguidedb')
+
 
 
 Base.metadata.create_all(engine)
