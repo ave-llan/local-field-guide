@@ -24,7 +24,7 @@ CLIENT_ID = json.loads(
 
 
 # Create session and connect to DB
-engine = create_engine('sqlite:///fieldguide.db')
+engine = create_engine('postgresql://fieldguide:barnswallow@localhost/fieldguidedb')
 Base.metadata.bind = engine
 DBSession = sessionmaker(bind=engine)
 session = DBSession()
