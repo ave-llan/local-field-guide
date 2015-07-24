@@ -7,8 +7,8 @@ from sqlalchemy import create_engine
 Base = declarative_base()
 
 
-class User(Base):
-    __tablename__ = 'user'
+class UserProfile(Base):
+    __tablename__ = 'userProfile'
 
     id = Column(Integer, primary_key=True)
     name = Column(String(250), nullable=False)
@@ -26,7 +26,7 @@ class Place(Base):
     longitude = Column(Float, nullable=False)
     latitude = Column(Float, nullable=False)
     user_id = Column(Integer, ForeignKey('user.id'))
-    user = relationship("User")
+    user = relationship("UserProfile")
 
 
 class Species(Base):
@@ -69,6 +69,5 @@ class SpeciesOccurrence(Base):
 
 
 engine = create_engine('postgresql://fieldguide:barnswallow@localhost/fieldguidedb')
-
 
 Base.metadata.create_all(engine)

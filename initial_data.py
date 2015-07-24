@@ -1,7 +1,7 @@
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
-from database_setup import Base, User, Place, Species, SpeciesOccurrence, engine
+from database_setup import Base, UserProfile, Place, Species, SpeciesOccurrence, engine
 import json
 from os import listdir
 
@@ -67,7 +67,7 @@ def fieldGuideFromJSON(filename, owner):
 
 
 # Create inital user to whom all initial field guides will be assigned
-juan = User(
+juan = UserProfile(
     name="John Leszczynski",
     email="jrleszczynski@gmail.com",
     picture="https://lh3.googleusercontent.com/-zNX5AZdffwk/AAAAAAAAAAI/AAAAAAAACoQ/dmsDQGk34DI/photo.jpg",
