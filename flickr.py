@@ -7,9 +7,6 @@ and the url of the Flickr photo page.
 import requests, json
 from __init__ import PATH_TO_FILE
 
-print 'PATH_TO_FILE:'
-print PATH_TO_FILE
-
 # grab the api-key from the secrets file
 flickr_api_key = json.loads(
     open(PATH_TO_FILE + 'secrets.json', 'r').read())['flickr']
