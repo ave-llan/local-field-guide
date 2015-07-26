@@ -5,10 +5,14 @@ and the url of the Flickr photo page.
 """
 
 import requests, json
+from __init__ import PATH_TO_FILE
+
+print 'PATH_TO_FILE:'
+print PATH_TO_FILE
 
 # grab the api-key from the secrets file
 flickr_api_key = json.loads(
-    open('/var/www/fieldguideApp/FlaskApp/secrets.json', 'r').read())['flickr']
+    open(PATH_TO_FILE + 'secrets.json', 'r').read())['flickr']
 
 def search(search_terms, numResults=1):
     """Returns a a list of Flickr photo objects, or None if no results 

@@ -17,11 +17,16 @@ import httplib2
 import json
 import requests
 
+
+# on virtualenv this should be set to '/var/www/fieldguideApp/FlaskApp/'
+# if files will be in the same directory, use an empty string
+PATH_TO_FILE = ""
+
 # Imports for populating species information
 import flickr, wikipedia
 
 CLIENT_ID = json.loads(
-    open('/var/www/fieldguideApp/FlaskApp/client_secrets.json', 'r').read())['web']['client_id']
+    open(PATH_TO_FILE + 'client_secrets.json', 'r').read())['web']['client_id']
 
 
 # Create session and connect to DB
@@ -281,7 +286,7 @@ def gconnect():
     authorization_code = request.data
     try:
         # upgrade the authorization code into a credentials object
-        oauth_flow = flow_from_clientsecrets('/var/www/fieldguideApp/FlaskApp/client_secrets.json', scope='')
+        oauth_flow = flow_from_clientsecrets(PATH_TO_FILE + 'client_secrets.json', scope='')
         oauth_flow.redirect_uri = 'postmessage'
         credentials = oauth_flow.step2_exchange(authorization_code)
     except FlowExchangeError:
@@ -355,7 +360,7 @@ def fbconnect():
         return loginErrorResponse('Invalid State parameter', 401)
 
     access_token = request.data
-    fb_client_secrets = json.loads(open('/var/www/fieldguideApp/FlaskApp/fb_client_secrets.json', 'r').read())
+    fb_client_secrets = json.loads(open(PATH_TO_FILE + 'fb_client_secrets.json', 'r').read())
     app_id = fb_client_secrets['web']['app_id']
     app_secret = fb_client_secrets['web']['app_secret']
     url = 'https://graph.facebook.com/oauth/access_token?grant_type=fb_exchange_token&client_id=%s&client_secret=%s&fb_exchange_token=%s' % (
@@ -516,7 +521,7 @@ def loginErrorResponse(message, status_code,
 if __name__ == '__main__':
     # grab the flask key from the secrets file
     # grab the api-key from the secrets file
-    flask_secret = json.loads(open('/var/www/fieldguideApp/FlaskApp/secrets.json', 'r').read())['flask']
+    flask_secret = json.loads(open(PATH_TO_FILE + 'secrets.json', 'r').read())['flask']
     app.secret_key = flask_secret
     app.debug = True
     app.run(host = '0.0.0.0', port = 5000)
