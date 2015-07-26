@@ -70,7 +70,7 @@ def placeFieldGuide(place_id):
     occurrences = session.query(SpeciesOccurrence).\
                     filter_by(place_id = place_id).\
                     all()
-    authorInitials = "".join([i[0] for i in place.user.name.split()])
+    authorInitials = "".join([i[0] for i in place.userprofile.name.split()])
     return render_template('place.html', place = place, 
                         occurrences = occurrences,
                         authorInitials = authorInitials,
@@ -256,7 +256,7 @@ def placeFieldGuideJSON(place_id):
                     all()
     return jsonify(
         name=place.name,
-        author=place.user.name,
+        author=place.userprofile.name,
         longitude=place.longitude,
         latitude=place.latitude,
         species=[species.serialize for species in occurrences])

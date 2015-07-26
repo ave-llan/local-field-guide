@@ -8,7 +8,7 @@ Base = declarative_base()
 
 
 class UserProfile(Base):
-    __tablename__ = 'user'
+    __tablename__ = 'userprofile'
 
     id = Column(Integer, primary_key=True)
     name = Column(String(250), nullable=False)
@@ -25,8 +25,8 @@ class Place(Base):
     name = Column(String(250), nullable=False)
     longitude = Column(Float, nullable=False)
     latitude = Column(Float, nullable=False)
-    user_id = Column(Integer, ForeignKey('user.id'))
-    user = relationship("UserProfile")
+    user_id = Column(Integer, ForeignKey('userprofile.id'))
+    userprofile = relationship("UserProfile")
 
 
 class Species(Base):
@@ -68,9 +68,7 @@ class SpeciesOccurrence(Base):
 
 
 
-engine = create_engine("postgresql+psycopg2://fieldguide:thisisatest@localhost/fieldguidedb")
-#engine = create_engine('postgresql://localhost/fieldguidedb')
-
+engine = create_engine("postgresql+psycopg2://fieldguide:barnswallow@localhost/fieldguidedb")
 
 
 Base.metadata.create_all(engine)

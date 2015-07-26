@@ -12,7 +12,11 @@ Base.metadata.bind = engine
 DBSession = sessionmaker(bind=engine)
 session = DBSession()
 
-
+# first, drop all tables
+#from sqlalchemy.schema import MetaData
+#metadata = MetaData(bind=engine)
+#metadata.reflect()
+#metadata.drop_all()
 
 # takes a json file name, creates a place and adds species
 def fieldGuideFromJSON(filename, owner):
