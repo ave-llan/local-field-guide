@@ -11,14 +11,14 @@
     </div>
     <div class="author-information">
         <p >
-            Field Guide created by {{place.user.name}}
+            Field Guide created by {{place.userprofile.name}}
         </p>
     </div>
 </div>
 
 {% include "flashmessages.html" %}
 
-{% if login_session['email'] == place.user.email %}
+{% if login_session['email'] == place.userprofile.email %}
     <p>
         <a href="{{url_for('addSpeciesToPlace', place_id = place.id) }}">
             Add a species found here
@@ -49,14 +49,14 @@
 
         {% if occurrence.tip %}
             <p>{{occurrence.tip}} <span class="tip-attribution">―{{authorInitials}}</span>
-                {% if login_session['email'] == place.user.email %}
+                {% if login_session['email'] == place.userprofile.email %}
                     <span class="card-control">
                         [<a href="{{url_for('editSpeciesOccurrence', 
                         place_id=place.id, species_id=occurrence.species.id)}}">Edit</a>]
                     </span>
                 {% endif %}
             </p>
-        {% elif login_session['email'] == place.user.email %}
+        {% elif login_session['email'] == place.userprofile.email %}
             <span class="card-control">
                 <br>[<a href="{{url_for('editSpeciesOccurrence', 
                 place_id=place.id, species_id=occurrence.species.id)}}">Add a tip</a>]
@@ -70,7 +70,7 @@
             </p>
         {% endif %}
 
-        {% if login_session['email'] == place.user.email %}
+        {% if login_session['email'] == place.userprofile.email %}
             <p id="remove-control">
                 <span class="card-control">
                     [<a href="{{url_for('removeOccurrence', place_id=place.id, species_id=occurrence.species.id)}}">Remove</a>]
