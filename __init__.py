@@ -5,6 +5,7 @@ app = Flask(__name__)
 from sqlalchemy import create_engine, desc
 from sqlalchemy.orm import sessionmaker
 from database_setup import Base, UserProfile, Place, Species, SpeciesOccurrence
+from database_setup import engine
 
 # Imports for oAuth
 from flask import session as login_session
@@ -24,7 +25,6 @@ CLIENT_ID = json.loads(
 
 
 # Create session and connect to DB
-engine = create_engine('postgresql+psycopg2://fieldguide:thisisatest@localhost/fieldguidedb')
 Base.metadata.bind = engine
 DBSession = sessionmaker(bind=engine)
 session = DBSession()
